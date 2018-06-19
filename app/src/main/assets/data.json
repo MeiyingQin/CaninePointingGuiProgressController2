@@ -1,0 +1,223 @@
+{
+  "Unexpected":
+  {
+    "start": ["pointer explain", "assistant explain", "did not learn", "do not remember", "do not know", "thank you", "sorry", "yes", "no"],
+    "pointer explain": [],
+    "assistant explain": [],
+    "did not learn": [],
+    "do not remember": [],
+    "do not know": [],
+    "thank you": [],
+    "sorry": [],
+    "yes": [],
+    "no": []
+  },
+  "Dog scared":
+  {
+    "start": ["initial check"],
+    "initial check": ["initial check ok", "set dispenser"],
+    "initial check ok": [],
+    "set dispenser": ["bring spoon and treat"],
+    "bring spoon and treat": ["get spoon and treat"],
+    "get spoon and treat": ["dog in position"],
+    "dog in position": ["instruction to owner"],
+    "instruction to owner": ["show treat"],
+    "show treat": ["bait"],
+    "bait": ["release dog"],
+    "release dog": ["treat ok", "break"],
+    "treat ok": [],
+    "break": []
+  },
+  "Introduction":
+  {
+    "start": ["initial_greeting"],
+    "initial_greeting": ["initial_robot name"],
+    "initial_robot name": ["initial_experimenter one name"],
+    "initial_experimenter one name": ["initial_experimenter one quiet"],
+    "initial_experimenter one quiet": ["initial_owner name"],
+    "initial_owner name": ["initial_dog name"],
+    "initial_dog name": ["initial_dog name response"],
+    "initial_dog name response": ["initial_dog gender"],
+    "initial_dog gender": ["initial_nice to meet you"],
+    "initial_nice to meet you": ["initial_take seat"],
+    "initial_take seat": ["initial_dog anywhere"],
+    "initial_dog anywhere": ["robot_first study"],
+    "robot_first study": ["robot_work with few dogs"],
+    "robot_work with few dogs": ["robot_dogs ok with robot"],
+    "robot_dogs ok with robot": ["robot_start self introduction"],
+    "robot_start self introduction": ["robot_gender"],
+    "robot_gender": ["robot_adult"],
+    "robot_adult": ["robot_work place"],
+    "robot_work place": ["robot_focus on current"],
+    "robot_focus on current": ["dog_happy to play with dog"],
+    "dog_happy to play with dog": ["dog_robot ask questions"],
+    "dog_robot ask questions": ["dog_sit"],
+    "dog_sit": ["dog_robot ask sit", "dog_does not know sit"],
+    "dog_robot ask sit": ["bait_praise", "dog_robot ask sit again"],
+    "bait_praise": ["dog_other tricks"],
+    "dog_robot ask sit again": ["bait_praise", "dog_not sit"],
+    "dog_not sit": ["dog_other tricks"],
+    "dog_does not know sit": ["dog_other tricks"],
+    "dog_other tricks": ["dog_robot ask to see tricks"],
+    "dog_robot ask to see tricks": ["dog_robot respond to tricks one", "dog_robot respond to tricks two", "dog_robot respond to tricks three"],
+    "dog_robot respond to tricks one": ["dog_age"],
+    "dog_robot respond to tricks two": ["dog_age"],
+    "dog_robot respond to tricks three": ["dog_age"],
+    "dog_age": ["dog_age reply young", "dog_age reply old"],
+    "dog_age reply young": ["dog_breed"],
+    "dog_age reply old": ["dog_breed"],
+    "dog_breed": ["dog_together length"],
+    "dog_together length": ["dog_together length reply short", "dog_together length reply long"],
+    "dog_together length reply short": ["dog_other dogs"],
+    "dog_together length reply long": ["dog_other dogs"],
+    "dog_other dogs": ["dog_other dogs reply few", "dog_other dogs reply many"],
+    "dog_other dogs reply few": ["dog_food motivation"],
+    "dog_other dogs reply many":["dog_food motivation"],
+    "dog_food motivation": ["dog_food motivation reply like", "dog_food motivation reply dislike"],
+    "dog_food motivation reply like": ["dog_previous robot experience"],
+    "dog_food motivation reply dislike": ["dog_previous robot experience"],
+    "dog_previous robot experience": ["dog_previous robot experience reply like", "dog_previous robot experience reply dislike"],
+    "dog_previous robot experience reply like": ["study_start"],
+    "dog_previous robot experience reply dislike": ["study_start"],
+    "study_start": ["study_exploration"],
+    "study_exploration": ["study_treat"],
+    "study_treat": ["study_pointing"],
+    "study_pointing": ["study_warmup"],
+    "study_warmup": ["study_test"],
+    "study_test": ["study_session break"],
+    "study_session break": ["study_request break"],
+    "study_request break": ["explore_exploration"],
+    "explore_exploration": ["explore_dog explore"],
+    "explore_dog explore": ["explore_start"],
+    "explore_start": ["explore_come over"],
+    "explore_come over": ["explore_close one", "explore_close two", "explore_close three", "explore_close four", "explore_close five"],
+    "explore_close one": ["bait_start"],
+    "explore_close two": ["bait_start"],
+    "explore_close three": ["bait_start"],
+    "explore_close four": ["bait_start"],
+    "explore_close five": ["bait_start"],
+    "bait_start": ["bait_dog back"],
+    "bait_dog back": ["bait_get dispenser"],
+    "bait_get dispenser": ["bait_introduction dispenser"],
+    "bait_introduction dispenser": ["bait_spoon treat"],
+    "bait_spoon treat": ["bait_action_get treat"],
+    "bait_action_get treat": ["bait_thanks"],
+    "bait_thanks": ["bait_instruction release"],
+    "bait instruction release": ["bait_action_show treat"],
+    "bait_action_show treat": ["bait_action_bait treat"],
+    "bait_action_bait treat": ["bait_release"],
+    "bait_release": ["transition_lobby"],
+    "transition_lobby": ["transition_lobby explain"],
+    "transition_lobby explain": []
+  },
+  "Warmup Introduction":
+  {
+    "start": ["introduction_welcome back"],
+    "introduction_welcome back": ["introduction_seat"],
+    "introduction_seat": ["introduction_dog in square"],
+    "introduction_dog in square": ["introduction_owner head down"],
+    "introduction_owner head down": ["introduction_release"],
+    "introduction_release": ["introduction_encourage"],
+    "introduction_encourage": ["introduction_one container at a time"],
+    "introduction_one container at a time": ["introduction_start"],
+    "introduction_start": []
+  },
+  "Warmup Trial":
+  {
+    "start": ["bait_get spoon treat one", "bait_get spoon treat two"],
+    "bait_get spoon treat one": ["bait_action_show treat"],
+    "bait_get spoon treat two": ["bait_action_show treat"],
+    "bait_action_show treat": ["bait_action_bait_left", "bait_action_bait_right"],
+    "bait_action_bait_left": ["bait_baiting"],
+    "bait_action_bait_right": ["bait_baiting"],
+    "bait_baiting": ["bait_release"],
+    "bait_release": []
+  },
+  "Warmup praise":
+  {
+    "Correct": ["bait_praise_get treat one", "bait_praise_get treat two"],
+    "Wrong": ["bait_praise_not get treat one", "bait_praise_not get treat two"],
+    "bait_praise_get treat one": [],
+    "bait_praise_get treat two": [],
+    "bait_praise_not get treat one": [],
+    "bait_praise_not get treat two": []
+  },
+  "Warmup Trial Finish":
+  {
+    "start": ["bait_next", "next_trial"],
+    "bait_next": [],
+    "next_trial": []
+  },
+  "Warmup Finish":
+  {
+    "start": ["transition_lobby"],
+    "transition_lobby": []
+  },
+  "Test Introduction":
+  {
+    "start": ["introduction_seat"],
+    "introduction_seat": ["introduction_square"],
+    "introduction_square": ["introduction_start"],
+    "introduction_start": ["introduction_eyes close"],
+    "introduction_eyes close": ["introduction_release_instruction"],
+    "introduction_release_instruction": ["introduction_back to owner"],
+    "introduction_back to owner": ["introduction_not other container"],
+    "introduction_not other container": ["introduction_request break"],
+    "introduction_request break": ["introduction_ready"],
+    "introduction_ready": []
+  },
+  "Test Trial":
+  {
+    "start": ["introduction_bait"],
+    "introduction_bait": ["bait_action_point_left", "bait_action_point_right"],
+    "bait_action_point_left": [],
+    "bait_action_point_right": []
+  },
+  "Test praise":
+  {
+    "Correct": ["bait_bait_praise_get treat one", "bait_bait_praise_get treat two", "bait_bait_praise_get treat three", "bait_bait_praise_get treat four", "bait_bait_praise_get treat five", "bait_bait_praise_get treat six", "bait_bait_praise_get treat seven", "bait_bait_praise_get treat eight"],
+    "Wrong": ["bait_praise_not get treat one", "bait_praise_not get treat two", "bait_praise_not get treat three", "bait_praise_not get treat four", "bait_praise_not get treat five", "bait_praise_not get treat six", "bait_praise_not get treat seven", "bait_praise_not get treat eight"],
+    "bait_bait_praise_get treat one": [],
+    "bait_bait_praise_get treat two": [],
+    "bait_bait_praise_get treat three": [],
+    "bait_bait_praise_get treat four": [],
+    "bait_bait_praise_get treat five": [],
+    "bait_bait_praise_get treat six": [],
+    "bait_bait_praise_get treat seven": [],
+    "bait_bait_praise_get treat eight": [],
+    "bait_praise_not get treat one": [],
+    "bait_praise_not get treat two": [],
+    "bait_praise_not get treat three": [],
+    "bait_praise_not get treat four": [],
+    "bait_praise_not get treat five": [],
+    "bait_praise_not get treat six": [],
+    "bait_praise_not get treat seven": [],
+    "bait_praise_not get treat eight": []
+  },
+  "Test Trial Finish":
+  {
+    "start": ["check_half way", "take_dog_back", "calibration"],
+    "check_half way": ["check_break"],
+    "check_break": ["check_break reply no", "check_break reply yes"],
+    "check_break reply no": [],
+    "check_break reply yes": [],
+    "take_dog_back": ["move on"],
+    "move on": [],
+    "calibration": []
+  },
+  "Test Finish":
+  {
+    "start": ["transition_lobby", "transition_finish"],
+    "transition_lobby": [],
+    "transition_finish": []
+  },
+  "Test System":
+  {
+    "start": ["say dog name", "say owner name", "stand", "start idle", "stop idle"],
+    "say dog name": [],
+    "say owner name": [],
+    "stand": [],
+    "start idle": [],
+    "stop idle": []
+  }
+}

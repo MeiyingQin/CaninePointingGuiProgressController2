@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/lib/com.research.caninerobotstudy.userinterface"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:grid="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/GridLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    grid:alignmentMode="alignBounds"
+    grid:columnCount="1"
+    tools:context="com.research.caninerobotstudy.userinterface.RunTrials">
+
+    <Button
+        android:id="@+id/nextTrialButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        grid:layout_columnWeight="1"
+        grid:layout_rowWeight="1"
+        android:text="@string/trial_next_trial_button_name"
+        android:onClick="onClick" />
+
+    <Button
+        android:id="@+id/repeatTrialButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        grid:layout_columnWeight="1"
+        grid:layout_rowWeight="1"
+        android:text="@string/trial_repeat_trial_button_name"
+        android:onClick="onClick" />
+
+</android.support.v7.widget.GridLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:grid="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.research.caninerobotstudy.userinterface.RobotActionsCollectionManager" >
+
+    <Button
+        android:id="@+id/unexpectedButton"
+        android:onClick="onClick"
+        android:text="@string/test_system_unexpected_button_name"
+        style="@style/buttonStyle" />
+
+    <Button
+        android:id="@+id/introductionSessionButton"
+        style="@style/buttonStyle"
+        android:onClick="onClick"
+        android:text="@string/test_system_introduction_session_button_name" />
+
+    <Button
+        android:id="@+id/dogScaredButton"
+        android:onClick="onClick"
+        android:text="@string/test_system_dog_scared_button_name"
+        style="@style/buttonStyle" />
+
+    <ListView
+        android:id="@+id/command_list_view"
+        style="@style/listviewStyle" >
+    </ListView>
+
+</LinearLayout>

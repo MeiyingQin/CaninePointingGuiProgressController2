@@ -1,0 +1,147 @@
+<resources>
+    <string name="app_name">UserInterface</string>
+
+    <string name="server_ip_label_name">IP: </string>
+    <string name="server_port_label_name">Port: </string>
+    <string name="owner_name_label_name">Owner Name: </string>
+    <string name="owner_name_label_hint">owner name</string>
+    <string name="dog_name_label_name">Dog Name: </string>
+    <string name="dog_name_label_hint">dog name</string>
+    <string name="dog_gender_label_name">Dog Gender: </string>
+    <string name="dog_gender_female_button_name">Female</string>
+    <string name="dog_gender_male_button_name">Male</string>
+    <string name="main_activity_start_button_name">START</string>
+
+    <!--<string name="server_ip">192.168.1.101</string>-->
+    <string name="server_ip">172.28.228.129</string>
+    <string name="server_port">10000</string>
+
+    <string name="dog_gender_female_robot_pronunciation">girl</string>
+    <string name="dog_gender_male_robot_pronunciation">boy</string>
+    <string name="initial_connection_request">connect request</string>
+    <string name="connection_respond">success</string>
+
+    <string name="title_activity_galleries">ActivityGalleries</string>
+    <string name="start_intro_button_name">Introduction</string>
+    <string name="start_warmup_button_name">Warm ups</string>
+    <string name="start_experiment_button_name">Experiments Trials</string>
+    <string name="start_test_system_button_name">Test System</string>
+
+    <string name="robot_command_introduction_1">introduction 1</string>
+    <string name="robot_command_introduction_2">introduction 2</string>
+    <string name="robot_command_introduction_3">introduction 3</string>
+    <string name="robot_command_introduction_4">introduction 4</string>
+    <string name="robot_command_introduction_5">introduction 5</string>
+    <string name="robot_command_introduction_6">introduction 6</string>
+    <string name="robot_command_introduction_1_description">Say "Hi" to Experimenter</string>
+    <string name="robot_command_introduction_2_description">Head turn to owner (front)</string>
+    <string name="robot_command_introduction_3_description">Say "Hi" to Owner</string>
+    <string name="robot_command_introduction_4_description">Talk to Owner (Nice to meet you. I am nao. How are you.)</string>
+    <string name="robot_command_introduction_5_description">Say "Hi" to dog and talk to dog</string>
+    <string name="robot_command_introduction_6_description">Say "Great! Now lets start the game." to dog</string>
+    <string name="robot_command_command_talk">command talk</string>
+    <string name="robot_command_get_treat">get treat</string>
+    <string name="robot_command_warmup_bait_left">warmup bait left</string>
+    <string name="robot_command_warmup_bait_right">warmup bait right</string>
+    <string name="robot_command_test_bait">test bait</string>
+    <string name="robot_command_point_left">point left</string>
+    <string name="robot_command_point_right">point right</string>
+    <string name="robot_command_release_dog">release dog</string>
+    <string name="robot_command_release_spoon">release spoon</string>
+    <string name="robot_command_get_spoon">get spoon</string>
+    <string name="robot_command_praise">praise</string>
+    <string name="robot_command_stand">stand</string>
+    <string name="robot_command_rest">rest</string>
+    <string name="robot_command_stand_back">stand back</string>
+    <string name="robot_command_start_idle">start idle</string>
+    <string name="robot_command_stop_idle">stop idle</string>
+
+    <string name="robot_command_deliminator">|</string>
+    <string name="robot_command_full">full</string>
+    <string name="robot_command_repeat">repeat</string>
+    <string name="robot_command_dog_scared_section">Dog scared</string>
+    <string name="robot_command_start">start</string>
+
+    <string name="robot_command_section">section</string>
+    <string name="robot_command_section_unexpected_behaviour">Unexpected</string>
+    <string name="robot_command_section_dog_scared">Dog scared</string>
+    <string name="robot_command_section_introduction">Introduction</string>
+    <string name="robot_command_section_warmup">Warmup</string>
+    <string name="robot_command_section_test">Test</string>
+    <string name="robot_command_section_test_system">Test System</string>
+
+    <string name="robot_command_section_keyword">section keyword</string>
+    <string name="robot_command_section_keyword_unexpected_behaviour">Unexpected</string>
+    <string name="robot_command_section_keyword_dog_scared">Dog scared</string>
+    <string name="robot_command_section_keyword_introduction">Introduction</string>
+    <string name="robot_command_section_keyword_warmup_introduction">Warmup Introduction</string>
+    <string name="robot_command_section_keyword_warmup_point">Warmup Trial</string>
+    <string name="robot_command_section_keyword_warmup_trial_finish">Warmup Trial Finish</string>
+    <string name="robot_command_section_keyword_warmup_finish">Warmup Finish</string>
+    <string name="robot_command_section_keyword_test_introduction">Test Introduction</string>
+    <string name="robot_command_section_keyword_test_point">Test Trial</string>
+    <string name="robot_command_section_keyword_test_trial_finish">Test Trial Finish</string>
+    <string name="robot_command_section_keyword_test_finish">Test Finish</string>
+    <string name="robot_command_section_keyword_warmup_praise">Warmup praise</string>
+    <string name="robot_command_section_keyword_test_praise">Test praise</string>
+    <string name="robot_command_section_keyword_praise_correct">Correct</string>
+    <string name="robot_command_section_keyword_praise_wrong">Wrong</string>
+    <string name="robot_command_section_keyword_test_system">Test System</string>
+
+    <string name="robot_command_choice">choice</string>
+    <string name="robot_command_choice_response">choice response</string>
+
+    <string name="robot_dog_name_placeholder">dogname</string>
+    <string name="robot_owner_name_placeholder">ownername</string>
+    <string name="robot_dog_gender_placeholder">doggender</string>
+
+    <string name="test_system_say_dogname_button_name">Say Dog Name</string>
+    <string name="test_system_say_ownername_button_name">Say Owner Name</string>
+    <string name="test_system_unexpected_button_name">Unexpected</string>
+    <string name="test_system_dog_scared_button_name">Dog Scared</string>
+    <string name="test_system_introduction_session_button_name">Introduction Session</string>
+    <string name="test_system_warmup_button_name">Warmup</string>
+    <string name="test_system_test_button_name">Test</string>
+    <string name="test_system_stand_button_name">Stand</string>
+    <string name="test_system_start_idle_button_name">Start Idle</string>
+    <string name="test_system_stop_idle_button_name">Stop Idle</string>
+
+    <string name="title_activity_robot_actions_collection_manager">RobotActionsCollectionManager
+    </string>
+    <string name="robot_actions_collection_manager_command_extra">RobotActionsCollectionCommand</string>
+    <string name="robot_actions_collection_manager_repeat_command_extra">RobotActionsCollectionRepeatCommand</string>
+    <!--<string name="robot_actions_collection_manager_not_priase">NO PRAISE</string>-->
+    <string name="robot_actions_collection_manager_repeat">repeat</string>
+    <string name="robot_actions_collection_manager_skip">skip</string>
+    <string name="robot_actions_collection_manager_unexpected">unexpected</string>
+    <string name="robot_actions_collection_manager_finish">finish</string>
+
+    <string name="trial_type">trial type</string>
+    <string name="trial_side_left">L</string>
+    <string name="trial_side_right">R</string>
+    <string name="trial_type_warmup">warm up</string>
+    <string name="trial_type_test">test</string>
+    <!--<string name="trial_next_left_trial_button_name">Next Trial %1$d: Left</string>-->
+    <string name="trial_next_trial_button_name">Trial %1$d</string>
+    <string name="trial_repeat_trial_button_name">Repeat Trial</string>
+    <string name="trial_finish">finish</string>
+
+    <string name="unexpected_response_dog_scared">dog scared</string>
+    <string name="unexpected_response_experimenter_one_explain">Meiying explain</string>
+    <string name="unexpected_response_experimenter_two_explain">Abby explain</string>
+    <string name="unexpected_response_did_not_learn">No, I did not learn that yet</string>
+    <string name="unexpected_response_do_not_remember">hmmmm. Sorry, I do  not remember</string>
+    <string name="unexpected_response_do_not_know">well. I do not think I know this</string>
+    <string name="unexpected_response_thank_you">thank you</string>
+    <string name="unexpected_response_yes">yes</string>
+    <string name="unexpected_response_no">no</string>
+
+    <string name="praise_correct_button_name">correct</string>
+    <string name="praise_wrong_button_name">wrong</string>
+    <string name="praise_result">praise</string>
+    <string name="praise_result_correct">correct</string>
+    <string name="praise_result_wrong">wrong</string>
+
+
+
+</resources>
