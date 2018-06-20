@@ -14,11 +14,11 @@ import org.json.JSONObject;
 public class CommandNode {
     private Context context;
     private JSONObject data;
-    private String currentCommand = "";
-    private String section = ""; // used to form command to send to robot
-    private String sectionKeyword = ""; // used to retrieve command from data json
+    private String currentCommand;
+    private String section; // used to form command to send to robot
+    private String sectionKeyword; // used to retrieve command from data json
 
-    public CommandNode(String currentSection, String sectionKey, Context currentContext){
+    CommandNode(String currentSection, String sectionKey, Context currentContext){
         section = currentSection;
         sectionKeyword = sectionKey;
         context = currentContext;
@@ -27,22 +27,23 @@ public class CommandNode {
     }
 
     private JSONObject readJSONFromAsset(){
-        String json = null;
+        JSONObject jsonObject = null;
         try {
-            InputStream is = context.getAssets().open("data.json");
+            InputStream is;
+            is = context.getAssets().open("data.json");
             int size = is.available();
             byte[] buffer = new byte[size];
-            is.read(buffer);
+            int read = is.read(buffer);
             is.close();
-            json = new String(buffer, "UTF-8");
-            return new JSONObject(json).getJSONObject(sectionKeyword);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }  catch (JSONException e) {
+            if (read > 0) {
+                String json = new String(buffer, "UTF-8");
+                jsonObject = new JSONObject(json).getJSONObject(sectionKeyword);
+            }
+        } catch (JSONException | IOException e) {
             e.printStackTrace();
             return null;
         }
+        return jsonObject;
     }
 
     public String getCurrentCommand() {
@@ -50,7 +51,7 @@ public class CommandNode {
     }
 
     public ArrayList<String> getChildren() {
-        ArrayList<String> children = new ArrayList<String>();
+        ArrayList<String> children = new ArrayList<>();
         try {
              JSONArray jsonChildren = data.getJSONArray(currentCommand);
              for (int i = 0; i < jsonChildren.length(); i++) {
@@ -58,12 +59,8 @@ public class CommandNode {
              }
         } catch (JSONException e) {
             e.printStackTrace();
-        };
+        }
         return children;
-    }
-
-    public String getCommand() {
-        return currentCommand;
     }
 
     public String getFullCommand() {
@@ -78,7 +75,7 @@ public class CommandNode {
         return currentCommand.isEmpty() || getChildren().isEmpty();
     }
 
-    public boolean isNextChoice() {
+    private boolean isNextChoice() {
         return getChildren().size() > 1;
     }
 
@@ -99,9 +96,9 @@ public class CommandNode {
         if (isNextChoice()) {
             int index = 0;
             int branches = getChildren().size();
-            ArrayList<String> candidates = new ArrayList<String>(getChildren());
+            ArrayList<String> candidates = new ArrayList<>(getChildren());
             boolean isFound = false;
-            HashMap<String, Integer> intersect = new HashMap<String, Integer>();
+            HashMap<String, Integer> intersect = new HashMap<>();
             while (!isFound && index < candidates.size()) {
                 setCurrentCommand(candidates.get(index));
                 if (isFinish()) {

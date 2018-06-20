@@ -9,20 +9,17 @@ import android.widget.Button;
 import java.util.ArrayList;
 
 public class RunTrials extends AppCompatActivity {
-    //    private ArrayList<String> trials = new ArrayList<String>();
     private int trialIndex = 1;
     private int totalTrials = 0;
 
-    private final int warmUpTotalTrials = 2;
-    private final int testTotalTrials = 8;
+    private static final int warmUpTotalTrials = 2;
+    private static final int testTotalTrials = 8;
 
-    private String trialType = "";
-
-    private final int introductionFinishRequest = 5829;
-    private final int pointFinishRequest = 2357;
-    private final int praiseFinishRequest = 4724;
-    private final int trialFinishRequest = 2313;
-    private final int finishFinishRequest = 6235;
+    private static final int introductionFinishRequest = 5829;
+    private static final int pointFinishRequest = 2357;
+    private static final int praiseFinishRequest = 4724;
+    private static final int trialFinishRequest = 2313;
+    private static final int finishFinishRequest = 6235;
 
     private String section = "";
     private String introductionSectionKeyword = "";
@@ -41,7 +38,7 @@ public class RunTrials extends AppCompatActivity {
         setContentView(R.layout.activity_run_trials);
 
         Intent intent = getIntent();
-        trialType = intent.getStringExtra(getString(R.string.trial_type));
+        String trialType = intent.getStringExtra(getString(R.string.trial_type));
 
         CommandNode praises = null;
         if (trialType.equals(getString(R.string.trial_type_warmup))) {
@@ -61,15 +58,20 @@ public class RunTrials extends AppCompatActivity {
             totalTrials = testTotalTrials;
             praises = new CommandNode(section, getString(R.string.robot_command_section_keyword_test_praise), getBaseContext());
         }
-        praises.setCurrentCommand(getString(R.string.robot_command_section_keyword_praise_correct));
-        correctPraises = praises.getChildren();
-        praises.setCurrentCommand(getString(R.string.robot_command_section_keyword_praise_wrong));
-        wrongPraises = praises.getChildren();
 
-        Intent introductionIntent = new Intent(getApplicationContext(), RobotActionsCollectionManager.class);
-        introductionIntent.putExtra(getString(R.string.robot_command_section), section);
-        introductionIntent.putExtra(getString(R.string.robot_command_section_keyword), introductionSectionKeyword);
-        startActivityForResult(introductionIntent, introductionFinishRequest);
+        if (praises != null) {
+            praises.setCurrentCommand(getString(R.string.robot_command_section_keyword_praise_correct));
+            correctPraises = praises.getChildren();
+            praises.setCurrentCommand(getString(R.string.robot_command_section_keyword_praise_wrong));
+            wrongPraises = praises.getChildren();
+
+            Intent introductionIntent = new Intent(getApplicationContext(), RobotActionsCollectionManager.class);
+            introductionIntent.putExtra(getString(R.string.robot_command_section), section);
+            introductionIntent.putExtra(getString(R.string.robot_command_section_keyword), introductionSectionKeyword);
+            startActivityForResult(introductionIntent, introductionFinishRequest);
+        } else {
+            finish();
+        }
     }
 
     private void enableButtons(boolean isEnable) {

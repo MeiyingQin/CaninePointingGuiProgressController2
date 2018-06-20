@@ -3,7 +3,6 @@ package com.research.caninerobotstudy.userinterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -34,20 +33,19 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
     }
 
     private void enableButtons(final boolean isEnable) {
-        final boolean enable = isEnable;
         runOnUiThread(new Runnable() {
             public void run() {
                 if (findViewById(R.id.repeatButton).getVisibility() == View.VISIBLE) {
-                    findViewById(R.id.repeatButton).setEnabled(enable);
+                    findViewById(R.id.repeatButton).setEnabled(isEnable);
                 }
                 if (findViewById(R.id.unexpectedButton).getVisibility() == View.VISIBLE) {
-                    findViewById(R.id.unexpectedButton).setEnabled(enable);
+                    findViewById(R.id.unexpectedButton).setEnabled(isEnable);
                 }
                 if (findViewById(R.id.skipButton).getVisibility() == View.VISIBLE) {
-                    findViewById(R.id.skipButton).setEnabled(enable);
+                    findViewById(R.id.skipButton).setEnabled(isEnable);
                 }
                 if (findViewById(R.id.finishButton).getVisibility() == View.VISIBLE) {
-                    findViewById(R.id.finishButton).setEnabled(enable);
+                    findViewById(R.id.finishButton).setEnabled(isEnable);
                 }
                 findViewById(R.id.choice_list_view).setEnabled(isEnable);
             }
@@ -80,8 +78,8 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
     }
 
     private void setUpCommands() {
-        ListView choiceListView = (ListView) findViewById(R.id.choice_list_view);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.listview_custom, commandsToShow);
+        ListView choiceListView = findViewById(R.id.choice_list_view);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.listview_custom, commandsToShow);
         choiceListView.setAdapter(arrayAdapter);
 
         choiceListView.setClickable(true);
@@ -131,7 +129,7 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
                     enableButtons(true);
                 } else if (viewId == R.id.skipButton) {
                     commands.skip();
-                    commandsToShow = new ArrayList<String>();
+                    commandsToShow = new ArrayList<>();
                     commandsToShow.add(commands.getCurrentCommand());
                     prepareNextCommand();
                 } else if (viewId == R.id.unexpectedButton) {
