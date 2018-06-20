@@ -11,11 +11,14 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class RobotActionsCollectionManager extends AppCompatActivity {
     private CommandNode commands;
+    boolean isSkipBranch = false;
 //    private int index = 0;
     private String currentCommand;
+    private String previousCommand;
 //    private final int choiceRequestCode = 3682;
 
     @Override
@@ -70,9 +73,9 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
             findViewById(R.id.finishButton).setVisibility(View.INVISIBLE);
         }
 
-        if (commands.isNextChoice()) {
-            findViewById(R.id.skipButton).setVisibility(View.INVISIBLE);
-        }
+//        if (commands.isNextChoice()) {
+//            findViewById(R.id.skipButton).setVisibility(View.INVISIBLE);
+//        }
 
         if (commands.isFinish()) {
             findViewById(R.id.skipButton).setVisibility(View.INVISIBLE);
@@ -85,24 +88,33 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
     }
 
     private void setUpCommands() {
-        final ArrayList<String> children = commands.getChildren();
+        ArrayList<String> children;
+        if (isSkipBranch) {
+            children = new ArrayList<String>();
+            children.add(currentCommand);
+            isSkipBranch = false;
+        } else {
+            children = commands.getChildren();
+        }
         ListView choiceListView = (ListView) findViewById(R.id.choice_list_view);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.listview_custom, children);
         choiceListView.setAdapter(arrayAdapter);
+
+        final ArrayList<String> nextCommands = children;
 
         choiceListView.setClickable(true);
         choiceListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 enableButtons(false);
-                currentCommand = children.get(i);
-                commands.setNextCommand(currentCommand);
+                commands.setNextCommand(nextCommands.get(i));
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
                         RobotCommand robotCommand = new RobotCommand();
                         robotCommand.sendInfoViaSocket(getBaseContext(), commands.getFullCommand());
                         prepareNextCommand();
+                        previousCommand = commands.getCurrentCommand();
                         enableButtons(true);
                     }
                 }).start();
@@ -119,6 +131,55 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
         });
     }
 
+    private String findIntercept() {
+        String intercept = "";
+        if (commands.isNextChoice()) {
+            isSkipBranch = true;
+            int index = 0;
+            int branches = commands.getChildren().size();
+            ArrayList<String> candidates = new ArrayList<String>();
+            candidates.addAll(commands.getChildren());
+            boolean isFound = false;
+            HashMap<String, Integer> intersect = new HashMap<String, Integer>();
+            while (!isFound && index < candidates.size()) {
+                commands.setNextCommand(candidates.get(index));
+                if (commands.isFinish()) {
+                    isFound = true;
+                } else {
+                    String child = findIntercept();
+                    if (intersect.containsKey(child)) {
+                        intersect.put(child, intersect.get(child) + 1);
+                        if (intersect.get(child) == branches) {
+                            intercept = child;
+                            isFound = true;
+                        }
+                    } else {
+                        intersect.put(child, 1);
+                    }
+                    candidates.add(child);
+                }
+                index++;
+            }
+        } else {
+            ArrayList<String> children = commands.getChildren();
+            intercept = children.get(0);
+        }
+        return intercept;
+    }
+
+    private boolean isNextQuestion() {
+        String currentNode = commands.getCurrentCommand();
+        boolean isQuestions = false;
+        if (!commands.isNextChoice()) {
+            commands.setNextCommand(commands.getChildren().get(0));
+            if (commands.isNextChoice()) {
+                isQuestions = true;
+            }
+        }
+        commands.setNextCommand(currentNode);
+        return isQuestions;
+    }
+
     public void onClick(View view) {
         final int viewId = view.getId();
         enableButtons(false);
@@ -129,12 +190,21 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
                 if (viewId == R.id.repeatButton) {
                     enableButtons(false);
                     RobotCommand robotCommand = new RobotCommand();
+                    String command = commands.getCurrentCommand();
+                    commands.setNextCommand(previousCommand);
                     robotCommand.sendInfoViaSocket(getBaseContext(), commands.getRepeatCommand());
+                    commands.setNextCommand(command);
                     enableButtons(true);
                 } else if (viewId == R.id.skipButton) {
-                    ArrayList<String> children = commands.getChildren();
-                    currentCommand = children.get(0);
-                    commands.setNextCommand(currentCommand);
+                    if (!commands.isNextChoice() && isNextQuestion()) {
+                        commands.setNextCommand(commands.getChildren().get(0));
+                    }
+                    String nextCommand = findIntercept();
+                    if (isSkipBranch) {
+                        currentCommand = nextCommand;
+                    } else {
+                        commands.setNextCommand(nextCommand);
+                    }
                     prepareNextCommand();
                 } else if (viewId == R.id.unexpectedButton) {
 //                    Intent intent = new Intent(getApplicationContext(), UnexpectedResponse.class);

@@ -58,6 +58,10 @@ public class CommandNode {
 //        return command;
 //    }
 
+    public String getCurrentCommand() {
+        return currentCommand;
+    }
+
     public ArrayList<String> getChildren() {
         ArrayList<String> children = new ArrayList<String>();
         try {
@@ -84,7 +88,7 @@ public class CommandNode {
     }
 
     public boolean isFinish() {
-        return getChildren().isEmpty();
+        return currentCommand.isEmpty() || getChildren().isEmpty();
     }
 
     public boolean isNextChoice() {
