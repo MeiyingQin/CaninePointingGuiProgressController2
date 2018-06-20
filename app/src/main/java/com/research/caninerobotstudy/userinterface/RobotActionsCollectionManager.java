@@ -130,7 +130,10 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
                 } else if (viewId == R.id.skipButton) {
                     commands.skip();
                     commandsToShow = new ArrayList<>();
-                    commandsToShow.add(commands.getCurrentCommand());
+                    String currentCummand = commands.getCurrentCommand();
+                    if (!currentCummand.isEmpty()) {
+                        commandsToShow.add(commands.getCurrentCommand());
+                    }
                     prepareNextCommand();
                 } else if (viewId == R.id.unexpectedButton) {
                     Intent intent = new Intent(getApplicationContext(), RobotActionsCollectionManager.class);

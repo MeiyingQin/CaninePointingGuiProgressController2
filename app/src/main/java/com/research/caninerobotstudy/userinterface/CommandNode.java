@@ -72,7 +72,7 @@ public class CommandNode {
     }
 
     public boolean isFinish() {
-        return currentCommand.isEmpty() || getChildren().isEmpty();
+        return currentCommand.isEmpty();
     }
 
     private boolean isNextChoice() {
@@ -118,8 +118,10 @@ public class CommandNode {
                 }
                 index++;
             }
-        } else {
+        } else if (getChildren().size() == 1 ){
             intercept = getChildren().get(0);
+        } else {
+            intercept = "";
         }
         return intercept;
     }
