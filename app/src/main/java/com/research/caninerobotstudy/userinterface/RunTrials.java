@@ -3,7 +3,6 @@ package com.research.caninerobotstudy.userinterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -62,9 +61,9 @@ public class RunTrials extends AppCompatActivity {
             totalTrials = testTotalTrials;
             praises = new CommandNode(section, getString(R.string.robot_command_section_keyword_test_praise), getBaseContext());
         }
-        praises.setNextCommand(getString(R.string.robot_command_section_keyword_praise_correct));
+        praises.setCurrentCommand(getString(R.string.robot_command_section_keyword_praise_correct));
         correctPraises = praises.getChildren();
-        praises.setNextCommand(getString(R.string.robot_command_section_keyword_praise_wrong));
+        praises.setCurrentCommand(getString(R.string.robot_command_section_keyword_praise_wrong));
         wrongPraises = praises.getChildren();
 
         Intent introductionIntent = new Intent(getApplicationContext(), RobotActionsCollectionManager.class);

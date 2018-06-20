@@ -5,21 +5,18 @@ import android.content.Context;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class CommandNode {
-//    private String commandName = "";
-//    private ArrayList<CommandNode> children = new ArrayList<CommandNode>();
     private Context context;
     private JSONObject data;
     private String currentCommand = "";
-//    private ArrayList<String> previousCommand = new ArrayList<String>();
     private String section = ""; // used to form command to send to robot
     private String sectionKeyword = ""; // used to retrieve command from data json
-//    private boolean fullFlag = true;
 
     public CommandNode(String currentSection, String sectionKey, Context currentContext){
         section = currentSection;
@@ -47,16 +44,6 @@ public class CommandNode {
             return null;
         }
     }
-
-//    public CommandNode add(String command) {
-//        CommandNode child = new CommandNode(command, context);
-//        return add(child);
-//    }
-//
-//    public CommandNode add(CommandNode command) {
-//        children.add(command);
-//        return command;
-//    }
 
     public String getCurrentCommand() {
         return currentCommand;
@@ -99,8 +86,7 @@ public class CommandNode {
         return currentCommand.equals(context.getString(R.string.robot_command_start));
     }
 
-    public void setNextCommand(String command) {
-//        previousCommand.add(currentCommand);
+    public void setCurrentCommand(String command) {
         currentCommand = command;
     }
 
@@ -108,10 +94,41 @@ public class CommandNode {
         currentCommand = context.getString(R.string.robot_command_start);
     }
 
-//    public String reverseCommand() {
-//        currentCommand = previousCommand.remove(previousCommand.size() - 1);
-//        fullFlag = false;
-//        return currentCommand;
-//    }
+    private String findIntercept() {
+        String intercept = "";
+        if (isNextChoice()) {
+            int index = 0;
+            int branches = getChildren().size();
+            ArrayList<String> candidates = new ArrayList<String>(getChildren());
+            boolean isFound = false;
+            HashMap<String, Integer> intersect = new HashMap<String, Integer>();
+            while (!isFound && index < candidates.size()) {
+                setCurrentCommand(candidates.get(index));
+                if (isFinish()) {
+                    isFound = true;
+                } else {
+                    String child = findIntercept();
+                    if (intersect.containsKey(child)) {
+                        intersect.put(child, intersect.get(child) + 1);
+                        if (intersect.get(child) == branches) {
+                            intercept = child;
+                            isFound = true;
+                        }
+                    } else {
+                        intersect.put(child, 1);
+                    }
+                    candidates.add(child);
+                }
+                index++;
+            }
+        } else {
+            intercept = getChildren().get(0);
+        }
+        return intercept;
+    }
+
+    public void skip() {
+        currentCommand = findIntercept();
+    }
 
 }

@@ -2,24 +2,15 @@ package com.research.caninerobotstudy.userinterface;
 
 import android.content.Context;
 import android.content.Intent;
-import android.icu.util.Calendar;
-import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 
 public class TestSystem extends AppCompatActivity {
     private ArrayList<Button> buttons =new ArrayList<Button>();
@@ -52,7 +43,7 @@ public class TestSystem extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 enableButtons(false);
                 String currentCommand = children.get(i);
-                commands.setNextCommand(currentCommand);
+                commands.setCurrentCommand(currentCommand);
                 new Thread(new Runnable() {
                     @Override
                     public void run() {

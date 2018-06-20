@@ -7,18 +7,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class RobotActionsCollectionManager extends AppCompatActivity {
     private CommandNode commands;
-    boolean isSkipBranch = false;
+//    boolean isSkipBranch = false;
 //    private int index = 0;
+    private ArrayList<String> commandsToShow;
     private String currentCommand;
-    private String previousCommand;
+    private String previousExecutedCommand;
 //    private final int choiceRequestCode = 3682;
 
     @Override
@@ -30,12 +29,10 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
         String section = intent.getStringExtra(getString(R.string.robot_command_section));
         String sectionKeyword = intent.getStringExtra(getString(R.string.robot_command_section_keyword));
 
-        Log.d("[RobotActionsCollectionManager - section]", section);
-        Log.d("[RobotActionsCollectionManager - sectionKeyword]", sectionKeyword);
-
         commands = new CommandNode(section, sectionKeyword, getBaseContext());
-
-//        onClick(findViewById(R.id.nextButton));
+        currentCommand = commands.getChildren().get(0);
+        commandsToShow = commands.getChildren();
+        previousExecutedCommand = "";
 
         prepareNextCommand();
     }
@@ -73,10 +70,6 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
             findViewById(R.id.finishButton).setVisibility(View.INVISIBLE);
         }
 
-//        if (commands.isNextChoice()) {
-//            findViewById(R.id.skipButton).setVisibility(View.INVISIBLE);
-//        }
-
         if (commands.isFinish()) {
             findViewById(R.id.skipButton).setVisibility(View.INVISIBLE);
             findViewById(R.id.unexpectedButton).setVisibility(View.INVISIBLE);
@@ -88,33 +81,25 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
     }
 
     private void setUpCommands() {
-        ArrayList<String> children;
-        if (isSkipBranch) {
-            children = new ArrayList<String>();
-            children.add(currentCommand);
-            isSkipBranch = false;
-        } else {
-            children = commands.getChildren();
-        }
         ListView choiceListView = (ListView) findViewById(R.id.choice_list_view);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.listview_custom, children);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.listview_custom, commandsToShow);
         choiceListView.setAdapter(arrayAdapter);
-
-        final ArrayList<String> nextCommands = children;
 
         choiceListView.setClickable(true);
         choiceListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 enableButtons(false);
-                commands.setNextCommand(nextCommands.get(i));
+                currentCommand = commandsToShow.get(i);
+                previousExecutedCommand = commandsToShow.get(i);
+                commandsToShow = commands.getChildren();
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
                         RobotCommand robotCommand = new RobotCommand();
+                        commands.setCurrentCommand(currentCommand);
                         robotCommand.sendInfoViaSocket(getBaseContext(), commands.getFullCommand());
                         prepareNextCommand();
-                        previousCommand = commands.getCurrentCommand();
                         enableButtons(true);
                     }
                 }).start();
@@ -131,55 +116,6 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
         });
     }
 
-    private String findIntercept() {
-        String intercept = "";
-        if (commands.isNextChoice()) {
-            isSkipBranch = true;
-            int index = 0;
-            int branches = commands.getChildren().size();
-            ArrayList<String> candidates = new ArrayList<String>();
-            candidates.addAll(commands.getChildren());
-            boolean isFound = false;
-            HashMap<String, Integer> intersect = new HashMap<String, Integer>();
-            while (!isFound && index < candidates.size()) {
-                commands.setNextCommand(candidates.get(index));
-                if (commands.isFinish()) {
-                    isFound = true;
-                } else {
-                    String child = findIntercept();
-                    if (intersect.containsKey(child)) {
-                        intersect.put(child, intersect.get(child) + 1);
-                        if (intersect.get(child) == branches) {
-                            intercept = child;
-                            isFound = true;
-                        }
-                    } else {
-                        intersect.put(child, 1);
-                    }
-                    candidates.add(child);
-                }
-                index++;
-            }
-        } else {
-            ArrayList<String> children = commands.getChildren();
-            intercept = children.get(0);
-        }
-        return intercept;
-    }
-
-    private boolean isNextQuestion() {
-        String currentNode = commands.getCurrentCommand();
-        boolean isQuestions = false;
-        if (!commands.isNextChoice()) {
-            commands.setNextCommand(commands.getChildren().get(0));
-            if (commands.isNextChoice()) {
-                isQuestions = true;
-            }
-        }
-        commands.setNextCommand(currentNode);
-        return isQuestions;
-    }
-
     public void onClick(View view) {
         final int viewId = view.getId();
         enableButtons(false);
@@ -190,25 +126,17 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
                 if (viewId == R.id.repeatButton) {
                     enableButtons(false);
                     RobotCommand robotCommand = new RobotCommand();
-                    String command = commands.getCurrentCommand();
-                    commands.setNextCommand(previousCommand);
+                    commands.setCurrentCommand(previousExecutedCommand);
                     robotCommand.sendInfoViaSocket(getBaseContext(), commands.getRepeatCommand());
-                    commands.setNextCommand(command);
                     enableButtons(true);
                 } else if (viewId == R.id.skipButton) {
-                    if (!commands.isNextChoice() && isNextQuestion()) {
-                        commands.setNextCommand(commands.getChildren().get(0));
-                    }
-                    String nextCommand = findIntercept();
-                    if (isSkipBranch) {
-                        currentCommand = nextCommand;
-                    } else {
-                        commands.setNextCommand(nextCommand);
-                    }
+                    commands.setCurrentCommand(currentCommand);
+                    commands.skip();
+                    currentCommand = commands.getCurrentCommand();
+                    commandsToShow = new ArrayList<String>();
+                    commandsToShow.add(commands.getCurrentCommand());
                     prepareNextCommand();
                 } else if (viewId == R.id.unexpectedButton) {
-//                    Intent intent = new Intent(getApplicationContext(), UnexpectedResponse.class);
-//                    startActivity(intent);
                     Intent intent = new Intent(getApplicationContext(), RobotActionsCollectionManager.class);
                     intent.putExtra(getString(R.string.robot_command_section), getString(R.string.robot_command_section_unexpected_behaviour));
                     intent.putExtra(getString(R.string.robot_command_section_keyword), getString(R.string.robot_command_section_keyword_unexpected_behaviour));
