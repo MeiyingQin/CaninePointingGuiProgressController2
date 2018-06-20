@@ -13,12 +13,8 @@ import java.util.ArrayList;
 
 public class RobotActionsCollectionManager extends AppCompatActivity {
     private CommandNode commands;
-//    boolean isSkipBranch = false;
-//    private int index = 0;
     private ArrayList<String> commandsToShow;
-    private String currentCommand;
     private String previousExecutedCommand;
-//    private final int choiceRequestCode = 3682;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +26,8 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
         String sectionKeyword = intent.getStringExtra(getString(R.string.robot_command_section_keyword));
 
         commands = new CommandNode(section, sectionKeyword, getBaseContext());
-        currentCommand = commands.getChildren().get(0);
         commandsToShow = commands.getChildren();
+        commands.skip();
         previousExecutedCommand = "";
 
         prepareNextCommand();
@@ -41,7 +37,6 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
         final boolean enable = isEnable;
         runOnUiThread(new Runnable() {
             public void run() {
-//                findViewById(R.id.nextButton).setEnabled(enable);
                 if (findViewById(R.id.repeatButton).getVisibility() == View.VISIBLE) {
                     findViewById(R.id.repeatButton).setEnabled(enable);
                 }
@@ -64,6 +59,10 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
         findViewById(R.id.skipButton).setVisibility(View.VISIBLE);
         findViewById(R.id.unexpectedButton).setVisibility(View.VISIBLE);
         findViewById(R.id.finishButton).setVisibility(View.VISIBLE);
+
+        if (previousExecutedCommand.isEmpty()) {
+            findViewById(R.id.repeatButton).setVisibility(View.INVISIBLE);
+        }
 
         if (commands.isStart()) {
             findViewById(R.id.repeatButton).setVisibility(View.INVISIBLE);
@@ -90,14 +89,13 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 enableButtons(false);
-                currentCommand = commandsToShow.get(i);
                 previousExecutedCommand = commandsToShow.get(i);
-                commandsToShow = commands.getChildren();
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
                         RobotCommand robotCommand = new RobotCommand();
-                        commands.setCurrentCommand(currentCommand);
+                        commands.setCurrentCommand(previousExecutedCommand);
+                        commandsToShow = commands.getChildren();
                         robotCommand.sendInfoViaSocket(getBaseContext(), commands.getFullCommand());
                         prepareNextCommand();
                         enableButtons(true);
@@ -126,13 +124,13 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
                 if (viewId == R.id.repeatButton) {
                     enableButtons(false);
                     RobotCommand robotCommand = new RobotCommand();
+                    String currentCommand = commands.getCurrentCommand();
                     commands.setCurrentCommand(previousExecutedCommand);
                     robotCommand.sendInfoViaSocket(getBaseContext(), commands.getRepeatCommand());
+                    commands.setCurrentCommand(currentCommand);
                     enableButtons(true);
                 } else if (viewId == R.id.skipButton) {
-                    commands.setCurrentCommand(currentCommand);
                     commands.skip();
-                    currentCommand = commands.getCurrentCommand();
                     commandsToShow = new ArrayList<String>();
                     commandsToShow.add(commands.getCurrentCommand());
                     prepareNextCommand();
