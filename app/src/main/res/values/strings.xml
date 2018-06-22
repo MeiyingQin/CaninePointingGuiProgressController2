@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">UserInterface</string>
+    <string name="app_name">RobotPointingStudy2FlowControl</string>
 
     <string name="server_ip_label_name">IP: </string>
     <string name="server_port_label_name">Port: </string>
@@ -13,7 +13,7 @@
     <string name="main_activity_start_button_name">START</string>
 
     <!--<string name="server_ip">192.168.1.101</string>-->
-    <string name="server_ip">192.168.7.142</string>
+    <string name="server_ip">172.28.228.129</string>
     <string name="server_port">10000</string>
 
     <string name="dog_gender_female_robot_pronunciation">girl</string>
