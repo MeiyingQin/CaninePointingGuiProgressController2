@@ -78,12 +78,12 @@
     <string name="robot_command_section_keyword_warmup_point">Warmup Trial</string>
     <string name="robot_command_section_keyword_warmup_trial_finish">Warmup Trial Finish</string>
     <string name="robot_command_section_keyword_warmup_finish">Warmup Finish</string>
-    <string name="robot_command_section_keyword_test_introduction">Test Introduction</string>
-    <string name="robot_command_section_keyword_test_point">Test Trial</string>
-    <string name="robot_command_section_keyword_test_trial_finish">Test Trial Finish</string>
-    <string name="robot_command_section_keyword_test_finish">Test Finish</string>
+    <string name="robot_command_section_keyword_test_introduction">Testing Introduction</string>
+    <string name="robot_command_section_keyword_test_point">Testing Trial</string>
+    <string name="robot_command_section_keyword_test_trial_finish">Testing Trial Finish</string>
+    <string name="robot_command_section_keyword_test_finish">Testing Finish</string>
     <string name="robot_command_section_keyword_warmup_praise">Warmup praise</string>
-    <string name="robot_command_section_keyword_test_praise">Test praise</string>
+    <string name="robot_command_section_keyword_test_praise">Testing praise</string>
     <string name="robot_command_section_keyword_praise_correct">Correct</string>
     <string name="robot_command_section_keyword_praise_wrong">Wrong</string>
     <string name="robot_command_section_keyword_test_system">Test System</string>
