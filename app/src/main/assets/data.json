@@ -166,7 +166,7 @@
   },
   "Testing Trial":
   {
-    "start": ["introduction_bait"],
+    "start": ["bait_bait"],
     "introduction_bait": ["bait_action_point_left", "bait_action_point_right"],
     "bait_action_point_left": [],
     "bait_action_point_right": []
