@@ -10,6 +10,10 @@
     <string name="dog_gender_label_name">Dog Gender: </string>
     <string name="dog_gender_female_button_name">Female</string>
     <string name="dog_gender_male_button_name">Male</string>
+    <string name="pointer_name_label_name">Pointer Name: </string>
+    <string name="pointer_name_label_default">Meiying</string>
+    <string name="assistant_name_label_name">Assistant Name: </string>
+    <string name="assistant_name_label_default">Ryan</string>
     <string name="main_activity_start_button_name">START</string>
 
     <!--<string name="server_ip">192.168.1.101</string>-->
@@ -19,6 +23,7 @@
     <string name="dog_gender_female_robot_pronunciation">girl</string>
     <string name="dog_gender_male_robot_pronunciation">boy</string>
     <string name="initial_connection_request">connect request</string>
+    <string name="initial_connection_information">initial information</string>
     <string name="connection_respond">success</string>
 
     <string name="title_activity_galleries">ActivityGalleries</string>

@@ -13,11 +13,26 @@ public class MainActivity extends AppCompatActivity {
     private String ownerName = "";
     private String dogName = "";
     private String dogGender = "";
+    private String pointerName = "";
+    private String assistantName = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    private String getInitialInformationMessage() {
+        String message = "";
+
+        message += getString(R.string.initial_connection_information) + getString(R.string.robot_command_deliminator);
+        message += ownerName + getString(R.string.robot_command_deliminator);
+        message += dogName + getString(R.string.robot_command_deliminator);
+        message += dogGender + getString(R.string.robot_command_deliminator);
+        message += pointerName + getString(R.string.robot_command_deliminator);
+        message += assistantName;
+
+        return message;
     }
 
     public void onDogGenderRadioButtonClicked(View view) {
@@ -42,16 +57,18 @@ public class MainActivity extends AppCompatActivity {
         port = Integer.parseInt(((EditText) findViewById(R.id.serverPortTextview)).getText().toString());
         ownerName = ((EditText) findViewById(R.id.ownerNameTextview)).getText().toString();
         dogName = ((EditText) findViewById(R.id.dogNameTextview)).getText().toString();
+        pointerName = ((EditText) findViewById(R.id.pointerNameTextview)).getText().toString();
+        assistantName = ((EditText) findViewById(R.id.assistantNameTextview)).getText().toString();
 
-        if (ip.isEmpty() || port == -1 || port == 0 ||ownerName.isEmpty() || dogName.isEmpty() || dogGender.isEmpty()) {
+        if (ip.isEmpty() || port == -1 || port == 0 ||ownerName.isEmpty() || dogName.isEmpty() || dogGender.isEmpty() || pointerName.isEmpty() || assistantName.isEmpty()) {
             return;
         }
 
         new Thread(new Runnable() {
             @Override
             public void run() {
-                RobotCommand robotCommand = new RobotCommand(ip, port, ownerName, dogName, dogGender);
-                if (robotCommand.sendInfoViaSocket(getBaseContext(), getString(R.string.initial_connection_request))) {
+                RobotCommand robotCommand = new RobotCommand(ip, port);
+                if (robotCommand.sendInfoViaSocket(getBaseContext(), getInitialInformationMessage())) {
                     Intent intent = new Intent(getApplicationContext(), ActivityGalleries.class);
                     startActivity(intent);
                 }

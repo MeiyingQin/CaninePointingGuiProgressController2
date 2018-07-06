@@ -23,25 +23,13 @@ import java.util.concurrent.Future;
  */
 
 public class RobotCommand {
-    private static String ownerName = "";
-    private static String dogName = "";
-    private static String dogGender = "";
     private static Socket socket = null;
 
     RobotCommand() {
 
     }
 
-    RobotCommand(String ip, int port, String ownerNameInput, String dogNameInput, String dogGenderInput) {
-        if (ownerName.isEmpty()) {
-            ownerName = ownerNameInput;
-        }
-        if (dogName.isEmpty()) {
-            dogName = dogNameInput;
-        }
-        if (dogGender.isEmpty()) {
-            dogGender = dogGenderInput;
-        }
+    RobotCommand(String ip, int port) {
 
         if (socket == null) {
             try {
@@ -55,10 +43,6 @@ public class RobotCommand {
 
     public boolean sendInfoViaSocket(Context context, String message) {
         Log.d("[sendInfoSocketSTART]", Calendar.getInstance().getTime().toString());
-
-        message = message.replaceAll(context.getString(R.string.robot_dog_name_placeholder), dogName);
-        message = message.replaceAll(context.getString(R.string.robot_owner_name_placeholder), ownerName);
-        message = message.replaceAll(context.getString(R.string.robot_dog_gender_placeholder), dogGender);
 
         final String requestMessage = message + "\n";
         final Context currentContext = context;
