@@ -72,7 +72,7 @@ public class CommandNode {
     }
 
     public boolean isFinish() {
-        return currentCommand.isEmpty();
+        return getChildren().isEmpty();
     }
 
     private boolean isNextChoice() {

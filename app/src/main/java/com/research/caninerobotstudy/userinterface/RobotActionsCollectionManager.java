@@ -26,7 +26,6 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
 
         commands = new CommandNode(section, sectionKeyword, getBaseContext());
         commandsToShow = commands.getChildren();
-        commands.skip();
         previousExecutedCommand = "";
 
         prepareNextCommand();

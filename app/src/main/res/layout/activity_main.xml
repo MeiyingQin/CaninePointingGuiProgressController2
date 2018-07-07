@@ -20,7 +20,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="number"
         android:text="@string/server_ip"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
         app:layout_constraintTop_toTopOf="parent"
