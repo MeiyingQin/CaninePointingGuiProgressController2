@@ -194,14 +194,16 @@
   },
   "Testing Trial Finish":
   {
-    "start": ["check_half way", "take_dog_back", "calibration"],
-    "check_half way": ["check_break"],
-    "check_break": ["check_break reply no", "check_break reply yes"],
-    "check_break reply no": [],
-    "check_break reply yes": [],
-    "take_dog_back": ["move on"],
-    "move on": ["check dispenser"],
-	"check dispenser": [],
+    "start": ["take_dog_back"],
+    "take_dog_back": ["check_half way", "calibration", "move on"],
+    "check_half way": ["check_half way break", "check_half way continue"],
+    "check_half way break": ["check_break reply no", "check_break reply yes"],
+    "check_half way continue": ["check dispenser"],
+    "check_break reply no": ["check dispenser"],
+    "check_break reply yes": ["check_break reply yes back"],
+    "check_break reply yes back": ["check dispenser"],
+    "move on": [],
+	"check dispenser": ["move on"],
     "calibration": []
   },
   "Testing Finish":
@@ -212,13 +214,17 @@
   },
   "Test System":
   {
-    "start": ["say dog name", "say owner name", "stand", "start idle", "stop idle", "wake up", "rest"],
+    "start": ["say dog name", "say owner name", "stand", "rest", "start idle", "stop idle", "wake up", "bait", "point left", "point right", "release dog okay"],
     "say dog name": [],
     "say owner name": [],
     "stand": [],
     "start idle": [],
     "stop idle": [],
 	"wake up": [],
-	"rest": []
+	"rest": [],
+    "bait": [],
+    "point left": [],
+    "point right": [],
+    "release dog okay": []
   }
 }
