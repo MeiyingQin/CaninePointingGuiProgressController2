@@ -152,7 +152,7 @@
         android:text="@string/assistant_name_label_default"
         android:inputType="textPersonName"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-        app:layout_constraintLeft_toRightOf="@id/pointerNameLabel"
+        app:layout_constraintLeft_toRightOf="@id/assistantNameLabel"
         app:layout_constraintTop_toBottomOf="@id/pointerNameTextview" />
 
     <Button
