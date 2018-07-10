@@ -95,10 +95,10 @@ public class RunTrials extends AppCompatActivity {
             public void run() {
                 String command = "";
                 if (isCorrect) {
-                    command += correctPraises.get(correctTrials) + getString(R.string.robot_command_deliminator);
+                    command += section + getString(R.string.robot_command_deliminator) + correctPraises.get(correctTrials) + getString(R.string.robot_command_deliminator);
                     correctTrials++;
                 } else {
-                    command += wrongPraises.get(wrongTrials) + getString(R.string.robot_command_deliminator);
+                    command += section + getString(R.string.robot_command_deliminator) + wrongPraises.get(wrongTrials) + getString(R.string.robot_command_deliminator);
                     wrongTrials++;
                 }
                 command += getString(R.string.robot_command_full);

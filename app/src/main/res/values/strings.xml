@@ -17,7 +17,7 @@
     <string name="main_activity_start_button_name">START</string>
 
     <!--<string name="server_ip">192.168.1.101</string>-->
-    <string name="server_ip">192.168.7.142</string>
+    <string name="server_ip">192.168.1.116</string>
     <string name="server_port">10000</string>
 
     <string name="dog_gender_female_robot_pronunciation">girl</string>
@@ -72,7 +72,7 @@
     <string name="robot_command_section_dog_scared">Dog scared</string>
     <string name="robot_command_section_introduction">Introduction</string>
     <string name="robot_command_section_warmup">Warmup</string>
-    <string name="robot_command_section_test">Test</string>
+    <string name="robot_command_section_test">Testing</string>
     <string name="robot_command_section_test_system">Test System</string>
 
     <string name="robot_command_section_keyword">section keyword</string>
