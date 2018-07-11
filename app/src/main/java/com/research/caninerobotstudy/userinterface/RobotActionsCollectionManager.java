@@ -127,11 +127,23 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
                     commands.setCurrentCommand(currentCommand);
                     enableButtons(true);
                 } else if (viewId == R.id.skipButton) {
+                    boolean isAddCurrent = commands.isNextQuestion() || commands.isNextChoice();
+                    if (isAddCurrent) {
+                        commands.setCurrentCommand(commands.getChildren().get(0));
+                    }
                     commands.skip();
                     commandsToShow = new ArrayList<>();
-                    String currentCummand = commands.getCurrentCommand();
-                    if (!currentCummand.isEmpty()) {
-                        commandsToShow.add(commands.getCurrentCommand());
+                    String currentCommand = commands.getCurrentCommand();
+                    if (isAddCurrent) {
+                        String parent = commands.getParent(currentCommand);
+                        commands.setCurrentCommand(parent);
+                    } else if (!commands.getChildren().isEmpty()) {
+                        currentCommand = commands.getChildren().get(0);
+                    } else {
+                        currentCommand = "";
+                    }
+                    if (!currentCommand.isEmpty()) {
+                        commandsToShow.add(currentCommand);
                     }
                     prepareNextCommand();
                 } else if (viewId == R.id.unexpectedButton) {

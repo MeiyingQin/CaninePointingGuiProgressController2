@@ -46,53 +46,9 @@ public class CommandNode {
         return jsonObject;
     }
 
-    public String getCurrentCommand() {
-        return currentCommand;
-    }
-
-    public ArrayList<String> getChildren() {
-        ArrayList<String> children = new ArrayList<>();
-        try {
-             JSONArray jsonChildren = data.getJSONArray(currentCommand);
-             for (int i = 0; i < jsonChildren.length(); i++) {
-                 children.add(jsonChildren.getString(i));
-             }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return children;
-    }
-
-    public String getFullCommand() {
-        return section + context.getString(R.string.robot_command_deliminator) + currentCommand + context.getString(R.string.robot_command_deliminator) + context.getString(R.string.robot_command_full);
-    }
-
-    public String getRepeatCommand() {
-        return section + context.getString(R.string.robot_command_deliminator) + currentCommand + context.getString(R.string.robot_command_deliminator) + context.getString(R.string.robot_command_repeat);
-    }
-
-    public boolean isFinish() {
-        return getChildren().isEmpty();
-    }
-
-    private boolean isNextChoice() {
-        return getChildren().size() > 1;
-    }
-
-    public boolean isStart() {
-        return currentCommand.equals(context.getString(R.string.robot_command_start));
-    }
-
-    public void setCurrentCommand(String command) {
-        currentCommand = command;
-    }
-
-    public void reset() {
-        currentCommand = context.getString(R.string.robot_command_start);
-    }
-
     private String findIntercept() {
         String intercept = "";
+
         if (isNextChoice()) {
             int index = 0;
             int branches = getChildren().size();
@@ -123,7 +79,90 @@ public class CommandNode {
         } else {
             intercept = "";
         }
+
         return intercept;
+    }
+
+    private String getParentHelper(String child) {
+        String parent = "";
+        if (!getChildren().contains(child)) {
+            for(String offspring : getChildren()) {
+                currentCommand = offspring;
+                parent = getParentHelper(child);
+                if (!parent.isEmpty()) {
+                    break;
+                }
+            }
+        } else {
+            parent = currentCommand;
+        }
+        return parent;
+    }
+
+    public String getCurrentCommand() {
+        return currentCommand;
+    }
+
+    public ArrayList<String> getChildren() {
+        ArrayList<String> children = new ArrayList<>();
+        try {
+             JSONArray jsonChildren = data.getJSONArray(currentCommand);
+             for (int i = 0; i < jsonChildren.length(); i++) {
+                 children.add(jsonChildren.getString(i));
+             }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return children;
+    }
+
+    public String getFullCommand() {
+        return section + context.getString(R.string.robot_command_deliminator) + currentCommand + context.getString(R.string.robot_command_deliminator) + context.getString(R.string.robot_command_full);
+    }
+
+    public String getRepeatCommand() {
+        return section + context.getString(R.string.robot_command_deliminator) + currentCommand + context.getString(R.string.robot_command_deliminator) + context.getString(R.string.robot_command_repeat);
+    }
+
+    public boolean isFinish() {
+        return getChildren().isEmpty();
+    }
+
+    public boolean isNextQuestion() {
+        boolean isQuestion = false;
+        if (getChildren().size() == 1) {
+            String current = currentCommand;
+            currentCommand = getChildren().get(0);
+            if (isNextChoice()) {
+                isQuestion = true;
+            }
+            currentCommand = current;
+        }
+        return isQuestion;
+    }
+
+    public boolean isNextChoice() {
+        return getChildren().size() > 1;
+    }
+
+    public boolean isStart() {
+        return currentCommand.equals(context.getString(R.string.robot_command_start));
+    }
+
+    public void setCurrentCommand(String command) {
+        currentCommand = command;
+    }
+
+    public void reset() {
+        currentCommand = context.getString(R.string.robot_command_start);
+    }
+
+    public String getParent(String child) {
+        String current = currentCommand;
+        reset();
+        String parent = getParentHelper(child);
+        currentCommand = current;
+        return parent;
     }
 
     public void skip() {
