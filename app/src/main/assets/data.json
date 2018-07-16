@@ -152,9 +152,10 @@
   },
   "Warmup Trial Finish":
   {
-    "start": ["bait_back_for_next", "next_trial"],
+    "start": ["bait_back_for_next", "next_trial", "last_trial end"],
     "bait_back_for_next": [],
-    "next_trial": []
+    "next_trial": [],
+    "last_trial end": []
   },
   "Warmup Finish":
   {
