@@ -16,8 +16,8 @@
     <string name="assistant_name_label_default">Ryan</string>
     <string name="main_activity_start_button_name">START</string>
 
-    <!--<string name="server_ip">192.168.1.101</string>-->
-    <string name="server_ip">192.168.1.116</string>
+    <string name="server_ip">192.168.1.101</string>
+    <!--<string name="server_ip">192.168.1.116</string>-->
     <string name="server_port">10000</string>
 
     <string name="dog_gender_female_robot_pronunciation">girl</string>
