@@ -1,7 +1,7 @@
 {
   "Unexpected":
   {
-    "start": ["pointer explain", "assistant explain", "did not learn", "do not remember", "do not know", "thank you", "sorry", "yes", "no", "no worries", "this is good", "owner name", "dog name", "maybe", "color", "age", "mentione this later", "I am friendly", "funny", "yay", "focus on current"],
+    "start": ["pointer explain", "assistant explain", "did not learn", "do not remember", "do not know", "thank you", "sorry", "sure", "yes", "no", "no worries", "this is good", "owner name", "dog name", "maybe", "color", "age", "mentione this later", "I am friendly", "funny", "yay", "focus on current"],
     "pointer explain": [],
     "assistant explain": [],
     "did not learn": [],
@@ -9,6 +9,7 @@
     "do not know": [],
     "thank you": [],
     "sorry": [],
+    "sure": [],
     "yes": [],
     "no": [],
 	"no worries": [],
