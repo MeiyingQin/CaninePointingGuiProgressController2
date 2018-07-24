@@ -1,7 +1,7 @@
 {
   "Unexpected":
   {
-    "start": ["pointer explain", "assistant explain", "did not learn", "do not remember", "do not know", "thank you", "sorry", "sure", "yes", "no", "no worries", "this is good", "owner name", "dog name", "maybe", "color", "age", "mentione this later", "I am friendly", "funny", "yay", "focus on current"],
+    "start": ["pointer explain", "assistant explain", "did not learn", "do not remember", "do not know", "thank you", "sorry", "sure", "yes", "no", "no worries", "this is good", "owner name", "dog name", "maybe", "color", "age", "mentione this later", "I am friendly", "funny", "yay", "focus on current", "refresh dispensers"],
     "pointer explain": [],
     "assistant explain": [],
     "did not learn": [],
@@ -23,11 +23,13 @@
     "I am friendly": [],
     "funny": [],
     "yay": [],
-    "focus on current": []
+    "focus on current": [],
+    "refresh dispensers": []
   },
   "Dog scared":
   {
-    "start": ["initial check"],
+    "start": ["refresh dispensers"],
+    "refresh dispensers": ["initial check"],
     "initial check": ["initial check okay", "set dispenser"],
     "initial check okay": [],
     "set dispenser": ["get dispenser"],
@@ -41,7 +43,8 @@
   },
   "Introduction":
   {
-    "start": ["initial_greeting"],
+    "start": ["refresh dispensers"],
+    "refresh dispensers": ["initial_greeting"],
     "initial_greeting": ["initial_robot name"],
     "initial_robot name": ["initial_experimenter one name"],
     "initial_experimenter one name": ["initial_experimenter one quiet"],
@@ -124,7 +127,8 @@
   },
   "Warmup Introduction":
   {
-    "start": ["introduction_welcome back"],
+    "start": ["refresh dispensers"],
+    "refresh dispensers": ["introduction_welcome back"],
     "introduction_welcome back": ["introduction_seat"],
     "introduction_seat": ["introduction_dog in square"],
     "introduction_dog in square": ["introduction_dog in square reply small dog", "introduction_dog in square reply big dog"],
@@ -165,7 +169,8 @@
   },
   "Testing Introduction":
   {
-    "start": ["introduction_seat"],
+    "start": ["refresh dispensers"],
+    "refresh dispensers": ["introduction_seat"],
     "introduction_seat": ["introduction_square"],
     "introduction_square": ["introduction_eyes close"],
     "introduction_eyes close": ["introduction_release_instruction"],
@@ -226,7 +231,7 @@
   },
   "Test System":
   {
-    "start": ["say dog name", "say owner name", "stand", "rest", "start idle", "stop idle", "start blinking", "stop blinking", "wake up", "bait", "point left", "point right", "release dog okay"],
+    "start": ["say dog name", "say owner name", "stand", "rest", "start idle", "stop idle", "start blinking", "stop blinking", "wake up", "refresh dispensers", "bait", "point left", "point right", "release dog okay"],
     "say dog name": [],
     "say owner name": [],
     "stand": [],
@@ -239,6 +244,7 @@
     "bait": [],
     "point left": [],
     "point right": [],
-    "release dog okay": []
+    "release dog okay": [],
+    "refresh dispensers": []
   }
 }
