@@ -1,0 +1,224 @@
+{
+  "Unexpected":
+  {
+    "start": ["let me think", "funny"],
+    "let me think": ["pointer explain", "assistant explain", "did not learn", "do not remember", "do not know", "thank you", "sorry", "yes", "no", "no worries", "this is good", "owner name", "dog name", "maybe", "color", "age", "mentione this later", "I am friendly", "yay", "focus on current"],
+    "pointer explain": [],
+    "assistant explain": [],
+    "did not learn": [],
+    "do not remember": [],
+    "do not know": [],
+    "thank you": [],
+    "sorry": [],
+    "yes": [],
+    "no": [],
+    "no worries": [],
+    "owner name": [],
+    "dog name": [],
+    "this is good": [],
+    "maybe": [],
+    "color": [],
+    "age": [],
+    "mention this later": [],
+    "I am friendly": [],
+    "funny": [],
+    "yay": [],
+    "focus on current": []
+  },
+  "Dog scared":
+  {
+    "start": ["initial check"],
+    "initial check": ["initial check okay", "set dispenser"],
+    "initial check okay": [],
+    "set dispenser": ["get dispenser"],
+    "get dispenser": ["dog in position"],
+    "dog in position": ["instruction to owner"],
+    "instruction to owner": ["bait"],
+    "bait": ["release dog"],
+    "release dog": ["treat okay", "break"],
+    "treat okay": [],
+    "break": []
+  },
+  "Introduction":
+  {
+    "start": ["initial_greeting"],
+    "initial_greeting": ["initial_robot name"],
+    "initial_robot name": ["initial_experimenter one name"],
+    "initial_experimenter one name": ["initial_experimenter one quiet"],
+    "initial_experimenter one quiet": ["initial_owner name"],
+    "initial_owner name": ["initial_dog name"],
+    "initial_dog name": ["initial_dog name response"],
+    "initial_dog name response": ["initial_dog gender"],
+    "initial_dog gender": ["initial_nice to meet you"],
+    "initial_nice to meet you": ["initial_take seat"],
+    "initial_take seat": ["initial_dog anywhere"],
+    "initial_dog anywhere": ["robot_first study"],
+    "robot_first study": ["robot_work with few dogs"],
+    "robot_work with few dogs": ["robot_dogs okay with robot"],
+    "robot_dogs okay with robot": ["dog_happy to play with dog"],
+    "dog_happy to play with dog": ["dog_robot ask questions"],
+    "dog_robot ask questions": ["dog_sit"],
+    "dog_sit": ["dog_robot ask sit", "dog_does not know sit"],
+    "dog_robot ask sit": ["bait_praise", "dog_robot ask sit again"],
+    "bait_praise": ["dog_robot give sit command instruction"],
+    "dog_robot give sit command instruction": ["dog_robot give sit command"],
+    "dog_robot give sit command": ["dog_robot give sit command yes", "dog_robot give sit command no"],
+    "dog_robot give sit command yes": ["dog_other tricks"],
+    "dog_robot give sit command no": ["dog_robot give sit command second"],
+    "dog_robot give sit command second": ["dog_robot give sit command yes", "dog_not sit"],
+    "dog_robot ask sit again": ["bait_praise", "dog_not sit"],
+    "dog_not sit": ["dog_other tricks"],
+    "dog_does not know sit": ["dog_other tricks"],
+    "dog_other tricks": ["dog_robot ask to see tricks", "dog_other tricks reply no"],
+    "dog_robot ask to see tricks": ["dog_robot respond to tricks one"],
+    "dog_robot respond to tricks one": ["dog_robot respond to tricks two"],
+    "dog_robot respond to tricks two": ["dog_robot respond to tricks three"],
+    "dog_robot respond to tricks three": ["dog_age"],
+    "dog_other tricks reply no": ["dog_age"],
+    "dog_age": ["dog_age reply young", "dog_age reply old"],
+    "dog_age reply young": ["dog_breed"],
+    "dog_age reply old": ["dog_breed"],
+    "dog_breed": ["dog_together length"],
+    "dog_together length": ["dog_together length reply short", "dog_together length reply long"],
+    "dog_together length reply short": ["dog_other dogs"],
+    "dog_together length reply long": ["dog_other dogs"],
+    "dog_other dogs": ["dog_other dogs reply few", "dog_other dogs reply many"],
+    "dog_other dogs reply few": ["dog_food motivation"],
+    "dog_other dogs reply many":["dog_food motivation"],
+    "dog_food motivation": ["dog_food motivation reply like", "dog_food motivation reply dislike"],
+    "dog_food motivation reply like": ["dog_previous robot experience"],
+    "dog_food motivation reply dislike": ["dog_previous robot experience"],
+    "dog_previous robot experience": ["dog_previous robot experience reply like", "dog_previous robot experience reply dislike"],
+    "dog_previous robot experience reply like": ["bait_start"],
+    "dog_previous robot experience reply dislike": ["bait_start"],
+    "bait_start": ["bait_dog back"],
+    "bait_dog back": ["bait_dog back reply small dog", "bait_dog back reply big dog"],
+    "bait_dog back reply small dog": ["bait_get dispenser"],
+    "bait_dog back reply big dog": ["bait_get dispenser"],
+    "bait_get dispenser": ["bait_thanks"],
+    "bait_thanks": ["bait_introduction dispenser"],
+    "bait_introduction dispenser": ["bait_instruction release"],
+    "bait_instruction release": ["bait_action start"],
+    "bait_action start": ["bait_action_bait treat"],
+    "bait_action_bait treat": ["bait_release"],
+    "bait_release": ["transition_lobby"],
+    "transition_lobby": ["study_start"],
+    "study_start": ["study_warmup"],
+    "study_warmup": ["study_test"],
+    "study_test": ["study_instructions"],
+    "study_instructions": ["instructions_trial"],
+    "instructions_trial": ["instructions_dog in square"],
+    "instructions_dog in square": ["instructions_owner head down"],
+    "instructions_owner head down": ["instructions_release"],
+    "instructions_release": ["instructions_encourage"],
+    "instructions_encourage": ["instructions_one container at a time"],
+    "instructions_one container at a time": ["instructions_request break"],
+    "instructions_request break": ["end"],
+    "end": []
+  },
+  "Warmup Introduction":
+  {
+    "start": ["introduction_start"],
+    "introduction_start": []
+  },
+  "Warmup Trial":
+  {
+    "start": ["bait_bait"],
+    "bait_bait": ["bait_release"],
+    "bait_release": []
+  },
+  "Warmup praise":
+  {
+    "Correct": ["bait_praise_get treat one", "bait_praise_get treat two"],
+    "Wrong": ["bait_praise_not get treat one", "bait_praise_not get treat two"],
+    "bait_praise_get treat one": [],
+    "bait_praise_get treat two": [],
+    "bait_praise_not get treat one": [],
+    "bait_praise_not get treat two": []
+  },
+  "Warmup Trial Finish":
+  {
+    "start": ["bait_back_for_next", "next_trial", "last_trial end"],
+    "bait_back_for_next": [],
+    "next_trial": [],
+    "last_trial end": []
+  },
+  "Warmup Finish":
+  {
+    "start": ["transition_lobby"],
+    "transition_lobby": []
+  },
+  "Testing Introduction":
+  {
+    "start": ["introduction_start"],
+    "introduction_start": ["introduction_release_instruction"],
+    "introduction_release_instruction": ["introduction_ready"],
+    "introduction_ready": []
+  },
+  "Testing Trial":
+  {
+    "start": ["bait_bait"],
+    "bait_bait": ["bait_action_point_left", "bait_action_point_right"],
+    "bait_action_point_left": [],
+    "bait_action_point_right": []
+  },
+  "Testing praise":
+  {
+    "Correct": ["bait_bait_praise_get treat one", "bait_bait_praise_get treat two", "bait_bait_praise_get treat three", "bait_bait_praise_get treat four", "bait_bait_praise_get treat five", "bait_bait_praise_get treat six", "bait_bait_praise_get treat seven", "bait_bait_praise_get treat eight"],
+    "Wrong": ["bait_praise_not get treat one", "bait_praise_not get treat two", "bait_praise_not get treat three", "bait_praise_not get treat four", "bait_praise_not get treat five", "bait_praise_not get treat six", "bait_praise_not get treat seven", "bait_praise_not get treat eight"],
+    "bait_bait_praise_get treat one": [],
+    "bait_bait_praise_get treat two": [],
+    "bait_bait_praise_get treat three": [],
+    "bait_bait_praise_get treat four": [],
+    "bait_bait_praise_get treat five": [],
+    "bait_bait_praise_get treat six": [],
+    "bait_bait_praise_get treat seven": [],
+    "bait_bait_praise_get treat eight": [],
+    "bait_praise_not get treat one": [],
+    "bait_praise_not get treat two": [],
+    "bait_praise_not get treat three": [],
+    "bait_praise_not get treat four": [],
+    "bait_praise_not get treat five": [],
+    "bait_praise_not get treat six": [],
+    "bait_praise_not get treat seven": [],
+    "bait_praise_not get treat eight": []
+  },
+  "Testing Trial Finish":
+  {
+    "start": ["take_dog_back", "next"],
+    "next": ["check_half way", "calibration", "move on"],
+    "take_dog_back": ["check_half way", "calibration", "move on"],
+    "check_half way": ["check_half way break", "check_half way continue"],
+    "check_half way break": ["check_break reply no", "check_break reply yes"],
+    "check_half way continue": ["check dispenser"],
+    "check_break reply no": ["check dispenser"],
+    "check_break reply yes": ["check_break reply yes back"],
+    "check_break reply yes back": ["check dispenser"],
+    "move on": [],
+    "check dispenser": ["move on"],
+    "calibration": []
+  },
+  "Testing Finish":
+  {
+    "start": ["transition_lobby", "transition_finish"],
+    "transition_lobby": [],
+    "transition_finish": []
+  },
+  "Test System":
+  {
+    "start": ["say dog name", "say owner name", "stand", "rest", "start idle", "stop idle", "start blinking", "stop blinking", "wake up", "bait", "point left", "point right", "release dog okay"],
+    "say dog name": [],
+    "say owner name": [],
+    "stand": [],
+    "start idle": [],
+    "stop idle": [],
+    "start blinking": [],
+    "stop blinking": [],
+    "wake up": [],
+    "rest": [],
+    "bait": [],
+    "point left": [],
+    "point right": [],
+    "release dog okay": []
+  }
+}
