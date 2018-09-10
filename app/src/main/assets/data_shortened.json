@@ -112,7 +112,8 @@
     "instructions_owner head down": ["instructions_release"],
     "instructions_release": ["instructions_encourage"],
     "instructions_encourage": ["instructions_one container at a time"],
-    "instructions_one container at a time": ["instructions_request break"],
+    "instructions_one container at a time": ["instructions_session break"],
+    "instructions_session break": ["instructions_request break"],
     "instructions_request break": ["end"],
     "end": []
   },
