@@ -153,7 +153,8 @@
   {
     "start": ["introduction_start"],
     "introduction_start": ["introduction_release_instruction"],
-    "introduction_release_instruction": ["introduction_ready"],
+    "introduction_release_instruction": ["introduction_request break"],
+    "introduction_request break": ["introduction_ready"],
     "introduction_ready": []
   },
   "Testing Trial":
