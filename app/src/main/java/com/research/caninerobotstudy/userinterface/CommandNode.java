@@ -30,7 +30,7 @@ public class CommandNode {
         JSONObject jsonObject = null;
         try {
             InputStream is;
-            is = context.getAssets().open("data.json");
+            is = context.getAssets().open("data_shortened.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             int read = is.read(buffer);
