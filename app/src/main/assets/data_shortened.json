@@ -27,21 +27,13 @@
   },
   "Dog scared":
   {
-    "start": ["initial check"],
-    "initial check": ["initial check okay", "set dispenser"],
-    "initial check okay": [],
-    "set dispenser": ["get dispenser"],
-    "get dispenser": ["dog in position"],
-    "dog in position": ["instruction to owner"],
-    "instruction to owner": ["bait"],
-    "bait": ["release dog"],
-    "release dog": ["treat okay", "break"],
-    "treat okay": [],
-    "break": []
+    "start": ["ask to provide treat"],
+    "ask to provide treat": []
   },
   "Introduction":
   {
-    "start": ["initial_greeting"],
+    "start": ["refresh dispensers"],
+    "refresh dispensers": ["initial_greeting"],
     "initial_greeting": ["initial_robot name"],
     "initial_robot name": ["initial_experimenter one name"],
     "initial_experimenter one name": ["initial_experimenter one quiet"],
@@ -73,8 +65,9 @@
     "dog_robot ask to see tricks": ["dog_robot respond to tricks one"],
     "dog_robot respond to tricks one": ["dog_robot respond to tricks two"],
     "dog_robot respond to tricks two": ["dog_robot respond to tricks three"],
-    "dog_robot respond to tricks three": ["dog_age"],
-    "dog_other tricks reply no": ["dog_age"],
+    "dog_robot respond to tricks three": ["owner_sit_back"],
+    "dog_other tricks reply no": ["owner_sit_back"],
+    "owner_sit_back": ["dog_age"],
     "dog_age": ["dog_age reply young", "dog_age reply old"],
     "dog_age reply young": ["dog_breed"],
     "dog_age reply old": ["dog_breed"],
@@ -114,12 +107,17 @@
     "instructions_encourage": ["instructions_one container at a time"],
     "instructions_one container at a time": ["instructions_session break"],
     "instructions_session break": ["instructions_request break"],
-    "instructions_request break": ["end"],
-    "end": []
+    "instructions_request break": ["instructions_end"],
+    "instructions_end": ["end_owner_wait_on_stool"],
+    "end_owner_wait_on_stool": ["end_owner_attract_dog_attention"],
+    "end_owner_attract_dog_attention": ["end_notify_assistant"],
+    "end_notify_assistant": []
   },
   "Warmup Introduction":
   {
-    "start": ["introduction_start"],
+    "start": ["refresh dispensers"],
+    "refresh dispensers": ["get_ready"],
+    "get_ready": ["introduction_start"],
     "introduction_start": []
   },
   "Warmup Trial":
@@ -147,11 +145,13 @@
   "Warmup Finish":
   {
     "start": ["transition_lobby"],
-    "transition_lobby": []
+    "transition_lobby": ["distract_dog"],
+    "distract_dog": []
   },
   "Testing Introduction":
   {
-    "start": ["introduction_start"],
+    "start": ["refresh dispensers"],
+    "refresh dispensers": ["introduction_start"],
     "introduction_start": ["introduction_release_instruction"],
     "introduction_release_instruction": ["introduction_request break"],
     "introduction_request break": ["introduction_ready"],
