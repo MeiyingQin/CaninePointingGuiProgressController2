@@ -208,7 +208,8 @@
   },
   "Test System":
   {
-    "start": ["say dog name", "say owner name", "stand", "rest", "start idle", "stop idle", "start blinking", "stop blinking", "wake up", "bait", "point left", "point right", "release dog okay"],
+    "start": ["refresh dispensers", "say dog name", "say owner name", "stand", "rest", "start idle", "stop idle", "start blinking", "stop blinking", "wake up", "bait", "point left", "point right", "release dog okay"],
+    "refresh dispensers": [],
     "say dog name": [],
     "say owner name": [],
     "stand": [],
