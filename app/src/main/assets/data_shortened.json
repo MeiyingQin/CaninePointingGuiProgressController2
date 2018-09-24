@@ -111,12 +111,15 @@
     "instructions_end": ["end_owner_wait_on_stool"],
     "end_owner_wait_on_stool": ["end_owner_attract_dog_attention"],
     "end_owner_attract_dog_attention": ["end_notify_assistant"],
-    "end_notify_assistant": []
+    "end_notify_assistant": ["start idle"],
+    "start idle": ["stop idle"],
+    "stop idle": []
   },
   "Warmup Introduction":
   {
     "start": ["refresh dispensers"],
-    "refresh dispensers": ["get_ready"],
+    "refresh dispensers": ["stop idle"],
+    "stop idle": ["get_ready"],
     "get_ready": ["introduction_start"],
     "introduction_start": []
   },
@@ -146,12 +149,15 @@
   {
     "start": ["transition_lobby"],
     "transition_lobby": ["distract_dog"],
-    "distract_dog": []
+    "distract_dog": ["start idle"],
+    "start idle": ["stop idle"],
+    "stop idle": []
   },
   "Testing Introduction":
   {
     "start": ["refresh dispensers"],
-    "refresh dispensers": ["introduction_start"],
+    "refresh dispensers": ["stop idle"],
+    "stop idle":["introduction_start"],
     "introduction_start": ["introduction_release_instruction"],
     "introduction_release_instruction": ["introduction_request break"],
     "introduction_request break": ["introduction_ready"],
@@ -197,14 +203,18 @@
     "check_break reply yes": ["check_break reply yes back"],
     "check_break reply yes back": ["check dispenser"],
     "move on": [],
-    "check dispenser": ["move on"],
+    "check dispenser": ["start idle"],
+    "start idle": ["stop idle"],
+    "stop idle": ["move on"],
     "calibration": []
   },
   "Testing Finish":
   {
     "start": ["transition_lobby", "transition_finish"],
-    "transition_lobby": [],
-    "transition_finish": []
+    "transition_lobby": ["start idle"],
+    "transition_finish": ["start idle"],
+    "start idle": ["stop idle"],
+    "stop idle": []
   },
   "Test System":
   {
