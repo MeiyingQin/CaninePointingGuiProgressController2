@@ -28,6 +28,12 @@
         style="@style/buttonStyle" />
 
     <Button
+        android:id="@+id/dogScaredButton"
+        android:onClick="onClick"
+        android:text="@string/robot_actions_collection_manager_dog_scared"
+        style="@style/buttonStyle" />
+
+    <Button
         android:id="@+id/finishButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

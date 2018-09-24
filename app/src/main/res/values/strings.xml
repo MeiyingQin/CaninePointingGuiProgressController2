@@ -119,6 +119,7 @@
     <string name="robot_actions_collection_manager_repeat">repeat</string>
     <string name="robot_actions_collection_manager_skip">skip</string>
     <string name="robot_actions_collection_manager_unexpected">unexpected</string>
+    <string name="robot_actions_collection_manager_dog_scared">dog scared</string>
     <string name="robot_actions_collection_manager_finish">finish</string>
 
     <string name="trial_type">trial type</string>

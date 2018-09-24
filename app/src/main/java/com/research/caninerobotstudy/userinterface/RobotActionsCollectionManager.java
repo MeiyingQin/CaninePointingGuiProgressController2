@@ -46,6 +46,9 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
                 if (findViewById(R.id.finishButton).getVisibility() == View.VISIBLE) {
                     findViewById(R.id.finishButton).setEnabled(isEnable);
                 }
+                if (findViewById(R.id.dogScaredButton).getVisibility() == View.VISIBLE) {
+                    findViewById(R.id.dogScaredButton).setEnabled(isEnable);
+                }
                 findViewById(R.id.choice_list_view).setEnabled(isEnable);
             }
         });
@@ -56,6 +59,7 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
         findViewById(R.id.skipButton).setVisibility(View.VISIBLE);
         findViewById(R.id.unexpectedButton).setVisibility(View.VISIBLE);
         findViewById(R.id.finishButton).setVisibility(View.VISIBLE);
+        findViewById(R.id.dogScaredButton).setVisibility(View.VISIBLE);
 
         if (previousExecutedCommand.isEmpty()) {
             findViewById(R.id.repeatButton).setVisibility(View.INVISIBLE);
@@ -150,6 +154,12 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), RobotActionsCollectionManager.class);
                     intent.putExtra(getString(R.string.robot_command_section), getString(R.string.robot_command_section_unexpected_behaviour));
                     intent.putExtra(getString(R.string.robot_command_section_keyword), getString(R.string.robot_command_section_keyword_unexpected_behaviour));
+                    startActivity(intent);
+                    enableButtons(true);
+                } else if (viewId == R.id.dogScaredButton) {
+                    Intent intent = new Intent(getApplicationContext(), RobotActionsCollectionManager.class);
+                    intent.putExtra(getString(R.string.robot_command_section), getString(R.string.robot_command_section_dog_scared));
+                    intent.putExtra(getString(R.string.robot_command_section_keyword), getString(R.string.robot_command_section_keyword_dog_scared));
                     startActivity(intent);
                     enableButtons(true);
                 } else if (viewId == R.id.finishButton) {
