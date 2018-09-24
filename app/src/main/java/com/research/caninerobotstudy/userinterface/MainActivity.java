@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private String dogGender = "";
     private String pointerName = "";
     private String assistantName = "";
+    private String recorderName = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
         message += dogName + getString(R.string.robot_command_deliminator);
         message += dogGender + getString(R.string.robot_command_deliminator);
         message += pointerName + getString(R.string.robot_command_deliminator);
-        message += assistantName;
+        message += assistantName + "|";
+        message += recorderName;
 
         return message;
     }
@@ -59,8 +61,9 @@ public class MainActivity extends AppCompatActivity {
         dogName = ((EditText) findViewById(R.id.dogNameTextview)).getText().toString();
         pointerName = ((EditText) findViewById(R.id.pointerNameTextview)).getText().toString();
         assistantName = ((EditText) findViewById(R.id.assistantNameTextview)).getText().toString();
+        recorderName = ((EditText) findViewById(R.id.recorderNameTextview)).getText().toString();
 
-        if (ip.isEmpty() || port == -1 || port == 0 ||ownerName.isEmpty() || dogName.isEmpty() || dogGender.isEmpty() || pointerName.isEmpty() || assistantName.isEmpty()) {
+        if (ip.isEmpty() || port == -1 || port == 0 ||ownerName.isEmpty() || dogName.isEmpty() || dogGender.isEmpty() || pointerName.isEmpty() || assistantName.isEmpty() || recorderName.isEmpty()) {
             return;
         }
 

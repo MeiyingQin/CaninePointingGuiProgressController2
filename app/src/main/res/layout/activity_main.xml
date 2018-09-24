@@ -155,13 +155,33 @@
         app:layout_constraintLeft_toRightOf="@id/assistantNameLabel"
         app:layout_constraintTop_toBottomOf="@id/pointerNameTextview" />
 
+    <TextView
+        android:id="@+id/recorderNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recorder_name_label_name"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/recorderNameTextview"  />
+
+    <EditText
+        android:id="@+id/recorderNameTextview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="@string/recorder_name_label_default"
+        android:inputType="textPersonName"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+        app:layout_constraintLeft_toRightOf="@id/recorderNameLabel"
+        app:layout_constraintTop_toBottomOf="@id/assistantNameTextview" />
+
     <Button
         android:id="@+id/startButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/main_activity_start_button_name"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-        app:layout_constraintTop_toBottomOf="@id/assistantNameTextview"
+        app:layout_constraintTop_toBottomOf="@id/recorderNameTextview"
         android:onClick="connect"/>
 
 </android.support.constraint.ConstraintLayout>
