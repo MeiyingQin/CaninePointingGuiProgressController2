@@ -2,7 +2,7 @@
   "Unexpected":
   {
     "start": ["let me think", "funny"],
-    "let me think": ["pointer explain", "assistant explain", "did not learn", "do not remember", "do not know", "thank you", "sorry", "yes", "no", "no worries", "this is good", "owner name", "dog name", "maybe", "color", "age", "mentione this later", "I am friendly", "yay", "focus on current"],
+    "let me think": ["pointer explain", "assistant explain", "did not learn", "do not remember", "do not know", "thank you", "refresh dispensers", "sorry", "yes", "no", "no worries", "this is good", "owner name", "dog name", "maybe", "color", "age", "mentione this later", "I am friendly", "yay", "focus on current"],
     "pointer explain": [],
     "assistant explain": [],
     "did not learn": [],
@@ -23,7 +23,8 @@
     "I am friendly": [],
     "funny": [],
     "yay": [],
-    "focus on current": []
+    "focus on current": [],
+    "refresh dispensers": []
   },
   "Dog scared":
   {
