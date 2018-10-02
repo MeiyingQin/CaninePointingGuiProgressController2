@@ -1,7 +1,7 @@
 {
   "Unexpected":
   {
-    "start": ["let me think", "funny", "refresh dispensers"],
+    "start": ["let me think", "funny"],
     "let me think": ["pointer explain", "assistant explain", "did not learn", "do not remember", "do not know", "thank you", "sorry", "yes", "no", "no worries", "this is good", "owner name", "dog name", "maybe", "color", "age", "mentione this later", "I am friendly", "yay", "focus on current"],
     "pointer explain": [],
     "assistant explain": [],
@@ -23,8 +23,7 @@
     "I am friendly": [],
     "funny": [],
     "yay": [],
-    "focus on current": [],
-    "refresh dispensers": []
+    "focus on current": []
   },
   "Dog scared":
   {
@@ -33,8 +32,7 @@
   },
   "Introduction":
   {
-    "start": ["refresh dispensers"],
-    "refresh dispensers": ["initial_greeting"],
+    "start": ["initial_greeting"],
     "initial_greeting": ["initial_robot name"],
     "initial_robot name": ["initial_experimenter one name"],
     "initial_experimenter one name": ["initial_experimenter one quiet"],
@@ -114,8 +112,7 @@
   },
   "Warmup Introduction":
   {
-    "start": ["refresh dispensers"],
-    "refresh dispensers": ["stop idle"],
+    "start": ["stop idle"],
     "stop idle": ["get_ready"],
     "get_ready": ["introduction_start"],
     "introduction_start": []
@@ -152,8 +149,7 @@
   },
   "Testing Introduction":
   {
-    "start": ["refresh dispensers"],
-    "refresh dispensers": ["stop idle"],
+    "start": ["stop idle"],
     "stop idle":["introduction_start"],
     "introduction_start": ["introduction_release_instruction"],
     "introduction_release_instruction": ["introduction_request break"],
@@ -215,8 +211,7 @@
   },
   "Test System":
   {
-    "start": ["refresh dispensers", "say dog name", "say owner name", "stand", "rest", "start idle", "stop idle", "start blinking", "stop blinking", "wake up", "bait", "point left", "point right", "release dog okay"],
-    "refresh dispensers": [],
+    "start": ["say dog name", "say owner name", "stand", "rest", "start idle", "stop idle", "start blinking", "stop blinking", "wake up", "bait", "point left", "point right", "release dog okay"],
     "say dog name": [],
     "say owner name": [],
     "stand": [],
