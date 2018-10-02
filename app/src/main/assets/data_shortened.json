@@ -1,7 +1,7 @@
 {
   "Unexpected":
   {
-    "start": ["let me think", "funny"],
+    "start": ["let me think", "funny", "refresh dispensers"],
     "let me think": ["pointer explain", "assistant explain", "did not learn", "do not remember", "do not know", "thank you", "sorry", "yes", "no", "no worries", "this is good", "owner name", "dog name", "maybe", "color", "age", "mentione this later", "I am friendly", "yay", "focus on current"],
     "pointer explain": [],
     "assistant explain": [],
@@ -23,7 +23,8 @@
     "I am friendly": [],
     "funny": [],
     "yay": [],
-    "focus on current": []
+    "focus on current": [],
+    "refresh dispensers": []
   },
   "Dog scared":
   {
@@ -95,12 +96,8 @@
     "bait_action start": ["bait_action_bait treat"],
     "bait_action_bait treat": ["bait_release"],
     "bait_release": ["transition_lobby"],
-    "transition_lobby": ["study_start"],
-    "study_start": ["study_warmup"],
-    "study_warmup": ["study_test"],
-    "study_test": ["study_instructions"],
-    "study_instructions": ["instructions_trial"],
-    "instructions_trial": ["instructions_dog in square"],
+    "transition_lobby": ["study_instructions"],
+    "study_instructions": ["instructions_dog in square"],
     "instructions_dog in square": ["instructions_owner head down"],
     "instructions_owner head down": ["instructions_release"],
     "instructions_release": ["instructions_encourage"],
