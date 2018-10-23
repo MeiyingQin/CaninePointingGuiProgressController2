@@ -103,8 +103,7 @@
     "instructions_session break": ["instructions_request break"],
     "instructions_request break": ["instructions_end"],
     "instructions_end": ["end_owner_wait_on_stool"],
-    "end_owner_wait_on_stool": ["end_owner_attract_dog_attention"],
-    "end_owner_attract_dog_attention": ["end_notify_assistant"],
+    "end_owner_wait_on_stool": ["end_notify_assistant"],
     "end_notify_assistant": ["start idle"],
     "start idle": ["stop idle"],
     "stop idle": []
@@ -141,8 +140,7 @@
   "Warmup Finish":
   {
     "start": ["transition_lobby"],
-    "transition_lobby": ["distract_dog"],
-    "distract_dog": ["start idle"],
+    "transition_lobby": ["start idle"],
     "start idle": ["stop idle"],
     "stop idle": []
   },
