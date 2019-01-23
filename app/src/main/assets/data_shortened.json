@@ -197,7 +197,7 @@
   },
   "Test System":
   {
-    "start": ["say dog name", "say owner name", "stand", "rest", "start idle", "stop idle", "start blinking", "stop blinking", "wake up", "point left", "point right", "release dog okay"],
+    "start": ["say dog name", "say owner name", "stand", "rest", "start idle", "stop idle", "start blinking", "stop blinking", "wake up", "get bait", "close hand", "drop bait left", "drop bait right", "point left", "point right", "release dog okay"],
     "say dog name": [],
     "say owner name": [],
     "stand": [],
@@ -207,6 +207,10 @@
     "stop blinking": [],
     "wake up": [],
     "rest": [],
+    "get bait": [],
+    "close hand": [],
+    "drop bait left": [],
+    "drop bait right": [],
     "point left": [],
     "point right": [],
     "release dog okay": []
