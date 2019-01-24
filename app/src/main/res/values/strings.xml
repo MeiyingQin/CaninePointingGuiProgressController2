@@ -11,11 +11,11 @@
     <string name="dog_gender_female_button_name">Female</string>
     <string name="dog_gender_male_button_name">Male</string>
     <string name="pointer_name_label_name">Pointer Name: </string>
-    <string name="pointer_name_label_default">Abby</string>
+    <string name="pointer_name_label_default">Meiying</string>
     <string name="assistant_name_label_name">Assistant Name: </string>
-    <string name="assistant_name_label_default">Meiying</string>
+    <string name="assistant_name_label_default">Skylar</string>
     <string name="recorder_name_label_name">Recorder Name: </string>
-    <string name="recorder_name_label_default">Jack</string>
+    <string name="recorder_name_label_default">Caleb</string>
     <string name="main_activity_start_button_name">START</string>
 
     <string name="server_ip">192.168.1.101</string>
