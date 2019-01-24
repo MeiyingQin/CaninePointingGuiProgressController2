@@ -78,7 +78,7 @@
     "bait_praise": ["dog_robot give sit command instruction"],
     "dog_robot give sit command instruction": ["dog_robot give sit command get treat"],
     "dog_robot give sit command get treat": ["dog_robot give sit command close hand"],
-    "dog_robot give sit command close hand": ["dog_robot sit command guardian not encouraging"],
+    "dog_robot give sit command close hand": ["dog_robot sit command guardian not encouraging", "dog_robot sit command show treat"],
     "dog_robot sit command guardian not encouraging": ["dog_robot sit command show treat"],
     "dog_robot sit command show treat": ["dog_robot give sit command"],
     "dog_robot give sit command": ["dog_robot give sit command yes", "dog_robot give sit command no"],
