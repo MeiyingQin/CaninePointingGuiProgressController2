@@ -81,6 +81,7 @@
     <string name="robot_command_section_keyword_unexpected_behaviour">Unexpected</string>
     <string name="robot_command_section_keyword_dog_scared">Dog scared</string>
     <string name="robot_command_section_keyword_introduction">Introduction</string>
+    <string name="robot_command_section_keyword_warmup">Warmup</string>
     <string name="robot_command_section_keyword_warmup_introduction">Warmup Introduction</string>
     <string name="robot_command_section_keyword_warmup_point">Warmup Trial</string>
     <string name="robot_command_section_keyword_warmup_trial_finish">Warmup Trial Finish</string>

@@ -101,38 +101,18 @@
     "start idle": ["stop idle"],
     "stop idle": []
   },
-  "Warmup Introduction":
+  "Warmup":
   {
-    "start": ["stop idle"],
-    "stop idle": ["get_ready"],
+    "start": ["get_ready"],
     "get_ready": ["introduction_start"],
-    "introduction_start": []
-  },
-  "Warmup Trial":
-  {
-    "start": ["bait_bait"],
+    "introduction_start": ["bait_bait"],
     "bait_bait": ["bait_release"],
-    "bait_release": []
-  },
-  "Warmup praise":
-  {
-    "Correct": ["bait_praise_get treat one", "bait_praise_get treat two"],
-    "Wrong": ["bait_praise_not get treat one", "bait_praise_not get treat two"],
-    "bait_praise_get treat one": [],
-    "bait_praise_get treat two": [],
-    "bait_praise_not get treat one": [],
-    "bait_praise_not get treat two": []
-  },
-  "Warmup Trial Finish":
-  {
-    "start": ["bait_back_for_next", "next_trial", "last_trial end"],
-    "bait_back_for_next": [],
-    "next_trial": [],
-    "last_trial end": []
-  },
-  "Warmup Finish":
-  {
-    "start": ["transition_lobby"],
+    "bait_release": ["bait_praise_get treat two", "bait_praise_not get treat one"],
+    "bait_praise_get treat two": ["bait_bait", "bait_back_for_next", "next_trial", "last_trial end"],
+    "bait_praise_not get treat one": ["bait_bait", "bait_back_for_next", "next_trial", "last_trial end"],
+    "bait_back_for_next": ["bait_bait"],
+    "next_trial": ["bait_bait"],
+    "last_trial end": ["transition_lobby"],
     "transition_lobby": ["start idle"],
     "start idle": ["stop idle"],
     "stop idle": []

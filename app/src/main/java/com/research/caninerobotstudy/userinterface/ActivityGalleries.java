@@ -21,8 +21,9 @@ public class ActivityGalleries extends AppCompatActivity {
     }
 
     public void startWarmup(View view) {
-        Intent intent = new Intent(getApplicationContext(), RunTrials.class);
-        intent.putExtra(getString(R.string.trial_type), getString(R.string.trial_type_warmup));
+        Intent intent = new Intent(getApplicationContext(), RobotActionsCollectionManager.class);
+        intent.putExtra(getString(R.string.robot_command_section), getString(R.string.robot_command_section_warmup));
+        intent.putExtra(getString(R.string.robot_command_section_keyword), getString(R.string.robot_command_section_keyword_warmup));
         startActivity(intent);
     }
 
