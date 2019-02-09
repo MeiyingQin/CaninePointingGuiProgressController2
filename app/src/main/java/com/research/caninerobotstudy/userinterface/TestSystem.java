@@ -73,22 +73,27 @@ public class TestSystem extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String section = "";
-                String sectionKeyword = "";
-                if (viewId == R.id.unexpectedButton) {
-                    section = getString(R.string.robot_command_section_unexpected_behaviour);
-                    sectionKeyword = getString(R.string.robot_command_section_keyword_unexpected_behaviour);
-                } else if (viewId == R.id.dogScaredButton) {
-                    section = getString(R.string.robot_command_section_dog_scared);
-                    sectionKeyword = getString(R.string.robot_command_section_keyword_dog_scared);
-                } else if (viewId == R.id.introductionSessionButton) {
-                    section = getString(R.string.robot_command_section_introduction);
-                    sectionKeyword = getString(R.string.robot_command_section_keyword_introduction);
+                if (viewId == R.id.dispenserButton) {
+                    DispenserController controller = new DispenserController(getApplicationContext());
+                    controller.rotate();
+                } else {
+                    String section = "";
+                    String sectionKeyword = "";
+                    if (viewId == R.id.unexpectedButton) {
+                        section = getString(R.string.robot_command_section_unexpected_behaviour);
+                        sectionKeyword = getString(R.string.robot_command_section_keyword_unexpected_behaviour);
+                    } else if (viewId == R.id.dogScaredButton) {
+                        section = getString(R.string.robot_command_section_dog_scared);
+                        sectionKeyword = getString(R.string.robot_command_section_keyword_dog_scared);
+                    } else if (viewId == R.id.introductionSessionButton) {
+                        section = getString(R.string.robot_command_section_introduction);
+                        sectionKeyword = getString(R.string.robot_command_section_keyword_introduction);
+                    }
+                    Intent intent = new Intent(getApplicationContext(), RobotActionsCollectionManager.class);
+                    intent.putExtra(getString(R.string.robot_command_section), section);
+                    intent.putExtra(getString(R.string.robot_command_section_keyword), sectionKeyword);
+                    startActivity(intent);
                 }
-                Intent intent = new Intent(getApplicationContext(), RobotActionsCollectionManager.class);
-                intent.putExtra(getString(R.string.robot_command_section), section);
-                intent.putExtra(getString(R.string.robot_command_section_keyword), sectionKeyword);
-                startActivity(intent);
                 enableButtons(true);
             }
         }).start();

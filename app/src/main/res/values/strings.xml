@@ -107,6 +107,7 @@
     <string name="test_system_say_ownername_button_name">Say Owner Name</string>
     <string name="test_system_unexpected_button_name">Unexpected</string>
     <string name="test_system_dog_scared_button_name">Dog Scared</string>
+    <string name="test_system_dispenser_button_name">Dispenser Rotate</string>
     <string name="test_system_introduction_session_button_name">Introduction Session</string>
     <string name="test_system_warmup_button_name">Warmup</string>
     <string name="test_system_test_button_name">Test</string>

@@ -11,6 +11,8 @@ public class ActivityGalleries extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_galleries);
+
+        DispenserController controller = new DispenserController(getApplicationContext());
     }
 
     public void startIntroduction(View view) {

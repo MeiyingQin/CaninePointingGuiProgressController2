@@ -27,6 +27,12 @@
         android:text="@string/test_system_dog_scared_button_name"
         style="@style/buttonStyle" />
 
+    <Button
+        android:id="@+id/dispenserButton"
+        android:onClick="onClick"
+        android:text="@string/test_system_dispenser_button_name"
+        style="@style/buttonStyle" />
+
     <ListView
         android:id="@+id/command_list_view"
         style="@style/listviewStyle" >

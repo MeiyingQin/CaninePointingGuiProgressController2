@@ -16,10 +16,6 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
     private CommandNode commands;
     private ArrayList<String> commandsToShow;
     private String previousExecutedCommand;
-    private String dispenserOneAddress = "D3:D5:19:80:C0:9E";
-    private String dispenserTwoAddress = "FD:61:0E:2C:D5:12";
-    private DispenserController controllerOne;
-    private DispenserController controllerTwo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -175,18 +171,8 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
                 } else if (viewId == R.id.finishButton) {
                     finish();
                 } else if (viewId == R.id.dispenserRotateButton) {
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            controllerOne = new DispenserController(getApplicationContext(), dispenserOneAddress);
-                        }
-                    }).start();
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            controllerTwo = new DispenserController(getApplicationContext(), dispenserTwoAddress);
-                        }
-                    }).start();
+                    DispenserController controller = new DispenserController(getApplicationContext());
+                    controller.rotate();
                     enableButtons(true);
                 }
             }
