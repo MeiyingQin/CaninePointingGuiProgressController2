@@ -9,37 +9,73 @@
     android:layout_height="match_parent"
     tools:context="com.research.caninerobotstudy.userinterface.RobotActionsCollectionManager" >
 
-    <Button
-        android:id="@+id/repeatButton"
-        android:onClick="onClick"
-        android:text="@string/robot_actions_collection_manager_repeat"
-        style="@style/buttonStyle"/>
-
-    <Button
-        android:id="@+id/skipButton"
-        android:onClick="onClick"
-        android:text="@string/robot_actions_collection_manager_skip"
-        style="@style/buttonStyle" />
-
-    <Button
-        android:id="@+id/unexpectedButton"
-        android:onClick="onClick"
-        android:text="@string/robot_actions_collection_manager_unexpected"
-        style="@style/buttonStyle" />
-
-    <Button
-        android:id="@+id/dogScaredButton"
-        android:onClick="onClick"
-        android:text="@string/robot_actions_collection_manager_dog_scared"
-        style="@style/buttonStyle" />
-
-    <Button
-        android:id="@+id/finishButton"
+    <android.support.v7.widget.GridLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onClick"
-        android:text="@string/robot_actions_collection_manager_finish"
-        android:textAppearance="@android:style/TextAppearance.Large" />
+        android:layout_height="350dp"
+        grid:alignmentMode="alignBounds"
+        grid:columnCount="2" >
+
+        <Button
+            android:id="@+id/repeatButton"
+            android:onClick="onClick"
+            android:text="@string/robot_actions_collection_manager_repeat"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            style="@style/buttonStyle" />
+
+        <Button
+            android:id="@+id/skipButton"
+            android:onClick="onClick"
+            android:text="@string/robot_actions_collection_manager_skip"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            style="@style/buttonStyle"/>
+
+        <Button
+            android:id="@+id/unexpectedButton"
+            android:onClick="onClick"
+            android:text="@string/robot_actions_collection_manager_unexpected"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            style="@style/buttonStyle" />
+
+        <Button
+            android:id="@+id/dogScaredButton"
+            android:onClick="onClick"
+            android:text="@string/robot_actions_collection_manager_dog_scared"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            style="@style/buttonStyle" />
+
+        <Button
+            android:id="@+id/dispenserRotateButton"
+            android:onClick="onClick"
+            android:text="@string/robot_actions_collection_manager_dispenser"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            style="@style/buttonStyle" />
+
+        <Button
+            android:id="@+id/finishButton"
+            android:onClick="onClick"
+            android:text="@string/robot_actions_collection_manager_finish"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            style="@style/buttonStyle" />
+
+    </android.support.v7.widget.GridLayout>
 
     <ListView
         android:id="@+id/choice_list_view"

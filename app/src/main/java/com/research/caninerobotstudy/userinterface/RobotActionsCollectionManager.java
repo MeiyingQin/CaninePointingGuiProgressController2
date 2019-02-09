@@ -9,11 +9,17 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class RobotActionsCollectionManager extends AppCompatActivity {
     private CommandNode commands;
     private ArrayList<String> commandsToShow;
     private String previousExecutedCommand;
+    private String dispenserOneAddress = "D3:D5:19:80:C0:9E";
+    private String dispenserTwoAddress = "FD:61:0E:2C:D5:12";
+    private DispenserController controllerOne;
+    private DispenserController controllerTwo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +55,9 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
                 if (findViewById(R.id.dogScaredButton).getVisibility() == View.VISIBLE) {
                     findViewById(R.id.dogScaredButton).setEnabled(isEnable);
                 }
+                if (findViewById(R.id.dispenserRotateButton).getVisibility() == View.VISIBLE) {
+                    findViewById(R.id.dispenserRotateButton).setEnabled(isEnable);
+                }
                 findViewById(R.id.choice_list_view).setEnabled(isEnable);
             }
         });
@@ -60,6 +69,7 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
         findViewById(R.id.unexpectedButton).setVisibility(View.VISIBLE);
         findViewById(R.id.finishButton).setVisibility(View.VISIBLE);
         findViewById(R.id.dogScaredButton).setVisibility(View.VISIBLE);
+        findViewById(R.id.dispenserRotateButton).setVisibility(View.VISIBLE);
 
         if (previousExecutedCommand.isEmpty()) {
             findViewById(R.id.repeatButton).setVisibility(View.INVISIBLE);
@@ -164,6 +174,20 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
                     enableButtons(true);
                 } else if (viewId == R.id.finishButton) {
                     finish();
+                } else if (viewId == R.id.dispenserRotateButton) {
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            controllerOne = new DispenserController(getApplicationContext(), dispenserOneAddress);
+                        }
+                    }).start();
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            controllerTwo = new DispenserController(getApplicationContext(), dispenserTwoAddress);
+                        }
+                    }).start();
+                    enableButtons(true);
                 }
             }
         }).start();
