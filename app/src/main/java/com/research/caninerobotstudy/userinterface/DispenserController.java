@@ -130,7 +130,7 @@ public class DispenserController {
             if (device == null) {
                 Log.w(TAG, "Device not found. Unable to connect");
             } else {
-                mBluetoothGattOne = device.connectGatt(context, false, mGattCallbackOne);
+                mBluetoothGattOne = device.connectGatt(context, true, mGattCallbackOne);
             }
         }
 
@@ -141,7 +141,7 @@ public class DispenserController {
             if (device == null) {
                 Log.w(TAG, "Device not found. Unable to connect");
             } else {
-                mBluetoothGattTwo = device.connectGatt(context, false, mGattCallbackTwo);
+                mBluetoothGattTwo = device.connectGatt(context, true, mGattCallbackTwo);
             }
         }
     }
