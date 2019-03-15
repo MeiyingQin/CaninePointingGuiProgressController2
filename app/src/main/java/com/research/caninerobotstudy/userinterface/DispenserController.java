@@ -151,4 +151,12 @@ public class DispenserController {
         mBluetoothGattTwo.writeCharacteristic(mCharacteristicTwo);
     }
 
+    public void left_rotate() {
+        mBluetoothGattOne.writeCharacteristic(mCharacteristicOne);
+    }
+
+    public void right_rotate() {
+        mBluetoothGattTwo.writeCharacteristic(mCharacteristicTwo);
+    }
+
 }

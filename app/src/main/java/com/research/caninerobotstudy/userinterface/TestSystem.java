@@ -23,6 +23,9 @@ public class TestSystem extends AppCompatActivity {
         buttons.add((Button)findViewById(R.id.unexpectedButton));
         buttons.add((Button)findViewById(R.id.dogScaredButton));
         buttons.add((Button)findViewById(R.id.introductionSessionButton));
+        buttons.add((Button)findViewById(R.id.dispenserButton));
+        buttons.add((Button)findViewById(R.id.dispenserLeftButton));
+        buttons.add((Button)findViewById(R.id.dispenserRightButton));
 
         String section = getString(R.string.robot_command_section_test_system);
         String sectionKeyword = getString(R.string.robot_command_section_keyword_test_system);
@@ -31,7 +34,7 @@ public class TestSystem extends AppCompatActivity {
         commands = new CommandNode(section, sectionKeyword, context);
 
         final ArrayList<String> children = commands.getChildren();
-        ListView choiceListView = findViewById(R.id.command_list_view);
+        ListView choiceListView = (ListView) findViewById(R.id.command_list_view);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.listview_custom, children);
         choiceListView.setAdapter(arrayAdapter);
 
@@ -76,6 +79,12 @@ public class TestSystem extends AppCompatActivity {
                 if (viewId == R.id.dispenserButton) {
                     DispenserController controller = new DispenserController(getApplicationContext());
                     controller.rotate();
+                } else if (viewId == R.id.dispenserLeftButton) {
+                    DispenserController controller = new DispenserController(getApplicationContext());
+                    controller.left_rotate();
+                } else if (viewId == R.id.dispenserRightButton) {
+                    DispenserController controller = new DispenserController(getApplicationContext());
+                    controller.right_rotate();
                 } else {
                     String section = "";
                     String sectionKeyword = "";

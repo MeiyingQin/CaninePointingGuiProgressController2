@@ -9,29 +9,73 @@
     android:layout_height="match_parent"
     tools:context="com.research.caninerobotstudy.userinterface.RobotActionsCollectionManager" >
 
-    <Button
-        android:id="@+id/unexpectedButton"
-        android:onClick="onClick"
-        android:text="@string/test_system_unexpected_button_name"
-        style="@style/buttonStyle" />
+    <android.support.v7.widget.GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        grid:alignmentMode="alignBounds"
+        grid:columnCount="2" >
 
-    <Button
-        android:id="@+id/introductionSessionButton"
-        style="@style/buttonStyle"
-        android:onClick="onClick"
-        android:text="@string/test_system_introduction_session_button_name" />
+        <Button
+            android:id="@+id/unexpectedButton"
+            android:onClick="onClick"
+            android:text="@string/test_system_unexpected_button_name"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            style="@style/buttonStyle" />
 
-    <Button
-        android:id="@+id/dogScaredButton"
-        android:onClick="onClick"
-        android:text="@string/test_system_dog_scared_button_name"
-        style="@style/buttonStyle" />
+        <Button
+            android:id="@+id/introductionSessionButton"
+            style="@style/buttonStyle"
+            android:onClick="onClick"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            android:text="@string/test_system_introduction_session_button_name" />
 
-    <Button
-        android:id="@+id/dispenserButton"
-        android:onClick="onClick"
-        android:text="@string/test_system_dispenser_button_name"
-        style="@style/buttonStyle" />
+        <Button
+            android:id="@+id/dogScaredButton"
+            android:onClick="onClick"
+            android:text="@string/test_system_dog_scared_button_name"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            style="@style/buttonStyle" />
+
+        <Button
+            android:id="@+id/dispenserButton"
+            android:onClick="onClick"
+            android:text="@string/test_system_dispenser_button_name"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            style="@style/buttonStyle" />
+
+        <Button
+            android:id="@+id/dispenserLeftButton"
+            android:onClick="onClick"
+            android:text="@string/test_system_dispenser_left_button_name"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            style="@style/buttonStyle" />
+
+        <Button
+            android:id="@+id/dispenserRightButton"
+            android:onClick="onClick"
+            android:text="@string/test_system_dispenser_right_button_name"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            style="@style/buttonStyle" />
+
+    </android.support.v7.widget.GridLayout>
 
     <ListView
         android:id="@+id/command_list_view"

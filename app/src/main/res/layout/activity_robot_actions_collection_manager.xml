@@ -75,6 +75,26 @@
             grid:layout_rowWeight="1"
             style="@style/buttonStyle" />
 
+        <Button
+            android:id="@+id/dispenserLeftRotateButton"
+            android:onClick="onClick"
+            android:text="@string/robot_actions_collection_manager_left_dispenser"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            style="@style/buttonStyle" />
+
+        <Button
+            android:id="@+id/dispenserRightRotateButton"
+            android:onClick="onClick"
+            android:text="@string/robot_actions_collection_manager_right_dispenser"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            style="@style/buttonStyle" />
+
     </android.support.v7.widget.GridLayout>
 
     <ListView

@@ -108,6 +108,8 @@
     <string name="test_system_unexpected_button_name">Unexpected</string>
     <string name="test_system_dog_scared_button_name">Dog Scared</string>
     <string name="test_system_dispenser_button_name">Dispenser Rotate</string>
+    <string name="test_system_dispenser_left_button_name">Dispenser Left Rotate</string>
+    <string name="test_system_dispenser_right_button_name">Dispenser Right Rotate</string>
     <string name="test_system_introduction_session_button_name">Introduction Session</string>
     <string name="test_system_warmup_button_name">Warmup</string>
     <string name="test_system_test_button_name">Test</string>
@@ -126,6 +128,8 @@
     <string name="robot_actions_collection_manager_dog_scared">dog scared</string>
     <string name="robot_actions_collection_manager_dispenser">dispenser</string>
     <string name="robot_actions_collection_manager_finish">finish</string>
+    <string name="robot_actions_collection_manager_left_dispenser">left</string>
+    <string name="robot_actions_collection_manager_right_dispenser">right</string>
 
     <string name="trial_type">trial type</string>
     <string name="trial_side_left">L</string>

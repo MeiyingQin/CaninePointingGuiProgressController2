@@ -54,6 +54,12 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
                 if (findViewById(R.id.dispenserRotateButton).getVisibility() == View.VISIBLE) {
                     findViewById(R.id.dispenserRotateButton).setEnabled(isEnable);
                 }
+                if (findViewById(R.id.dispenserLeftRotateButton).getVisibility() == View.VISIBLE) {
+                    findViewById(R.id.dispenserLeftRotateButton).setEnabled(isEnable);
+                }
+                if (findViewById(R.id.dispenserRightRotateButton).getVisibility() == View.VISIBLE) {
+                    findViewById(R.id.dispenserRightRotateButton).setEnabled(isEnable);
+                }
                 findViewById(R.id.choice_list_view).setEnabled(isEnable);
             }
         });
@@ -66,6 +72,8 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
         findViewById(R.id.finishButton).setVisibility(View.VISIBLE);
         findViewById(R.id.dogScaredButton).setVisibility(View.VISIBLE);
         findViewById(R.id.dispenserRotateButton).setVisibility(View.VISIBLE);
+        findViewById(R.id.dispenserLeftRotateButton).setVisibility(View.VISIBLE);
+        findViewById(R.id.dispenserRightRotateButton).setVisibility(View.VISIBLE);
 
         if (previousExecutedCommand.isEmpty()) {
             findViewById(R.id.repeatButton).setVisibility(View.INVISIBLE);
@@ -87,7 +95,7 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
     }
 
     private void setUpCommands() {
-        ListView choiceListView = findViewById(R.id.choice_list_view);
+        ListView choiceListView = (ListView) findViewById(R.id.choice_list_view);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.listview_custom, commandsToShow);
         choiceListView.setAdapter(arrayAdapter);
 
@@ -173,6 +181,14 @@ public class RobotActionsCollectionManager extends AppCompatActivity {
                 } else if (viewId == R.id.dispenserRotateButton) {
                     DispenserController controller = new DispenserController(getApplicationContext());
                     controller.rotate();
+                    enableButtons(true);
+                }  else if (viewId == R.id.dispenserLeftRotateButton) {
+                    DispenserController controller = new DispenserController(getApplicationContext());
+                    controller.left_rotate();
+                    enableButtons(true);
+                } else if (viewId == R.id.dispenserRightRotateButton) {
+                    DispenserController controller = new DispenserController(getApplicationContext());
+                    controller.right_rotate();
                     enableButtons(true);
                 }
             }
