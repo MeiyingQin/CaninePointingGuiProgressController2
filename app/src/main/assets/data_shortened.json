@@ -83,7 +83,7 @@
     "dog_robot dog stand in front of robot": ["dog_robot give sit command"],
     "dog_robot give sit command": ["dog_robot give sit command yes", "dog_robot give sit command no", "dog_move on to next session"],
     "dog_robot give sit command yes": ["dog_robot give sit command get treat", "start idle"],
-    "dog_robot give sit command no": ["dog_robot give sit command"],
+    "dog_robot give sit command no": ["dog_robot dog stand in front of robot", "dog_robot give sit command"],
     "dog_move on to next session": ["start idle"],
     "dog_does not know sit": ["start idle"],
     "start idle": ["stop idle"],
@@ -91,8 +91,7 @@
   },
   "Warmup":
   {
-    "start": ["get_ready"],
-    "get_ready": ["introduction_start"],
+    "start": ["introduction_start"],
     "introduction_start": ["bait_bait"],
     "bait_bait": ["bait_release"],
     "bait_release": ["bait_praise_get treat two", "bait_praise_not get treat one"],
@@ -107,9 +106,7 @@
   },
   "Testing Introduction":
   {
-    "start": ["stop idle"],
-    "stop idle":["introduction_start"],
-    "introduction_start": ["introduction_ready"],
+    "start": ["introduction_ready"],
     "introduction_ready": []
   },
   "Testing Trial":
