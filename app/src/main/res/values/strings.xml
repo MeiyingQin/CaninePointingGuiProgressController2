@@ -13,9 +13,9 @@
     <string name="pointer_name_label_name">Pointer Name: </string>
     <string name="pointer_name_label_default">Meiying</string>
     <string name="assistant_name_label_name">Assistant Name: </string>
-    <string name="assistant_name_label_default">Chavely</string>
+    <string name="assistant_name_label_default">Niko</string>
     <string name="recorder_name_label_name">Recorder Name: </string>
-    <string name="recorder_name_label_default">Zoe</string>
+    <string name="recorder_name_label_default">Emani</string>
     <string name="main_activity_start_button_name">START</string>
 
     <string name="server_ip">192.168.1.101</string>
